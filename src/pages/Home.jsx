@@ -1,9 +1,12 @@
 import Logo from '../assets/picture/logoEduAdapt.png'
 import background_picture from '../assets/picture/home_picture.jpg'
+import Button from '../Components/Buttons/Button'
+import { useNavigate } from 'react-router'
 
 
 
 function Home(){
+    const navigate = useNavigate()
     return(
         <div className="overflow-hidden">
             <div className="flex flex-col items-center">
@@ -11,6 +14,7 @@ function Home(){
                 <div className="absolute bottom-80">
                     <img className="mx-auto" src={Logo} alt="logo"></img>
                     <h1 className="mt-10 font-bold text-white text-3xl bg-white/20 p-1 rounded-2xl ">De vos cours à la réussite... en un clic.</h1>
+                    <Button NameButton="Se connecter" onClick={()=>navigate("/Inscription")}/>
                 </div>
             </div>
         </div>
