@@ -1,11 +1,9 @@
 import Logo from '../assets/picture/logoEduAdapt.png'
 import background_picture from '../assets/picture/home_picture.jpg'
-import { useNavigate } from "react-router-dom";
 
 
 
 function Home(){
-    const navigate = useNavigate();
     return(
         <div className="relative overflow-hidden h-screen">
             <img
@@ -21,12 +19,6 @@ function Home(){
                     De vos cours à la réussite... en un clic.
                 </h1>
 
-                <button
-                    className="cursor-pointer font-bold text-black text-2xl bg-white/60 px-6 py-2 rounded-2xl hover:bg-white/90 transition duration-300"
-                    onClick={() => navigate("/Chat")}
-                >
-                    Se connecter
-                </button>
             </div>
         </div>
 
