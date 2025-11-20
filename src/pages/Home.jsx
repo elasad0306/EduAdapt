@@ -17,12 +17,12 @@ function Home(){
             <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <img className="mx-auto -mt-20" src={Logo} alt="logo" />
 
-                <h1 className="mt-10 font-bold text-white text-3xl bg-white/20 p-2 rounded-2xl mb-8">
+                <h1 className="mt-10 font-bold text-white text-3xl bg-white/5 p-2 rounded-2xl mb-8">
                     De vos cours à la réussite... en un clic.
                 </h1>
 
                 <button
-                    className="cursor-pointer font-bold text-black text-2xl bg-white/40 px-6 py-2 rounded-2xl hover:bg-white/60 transition duration-300"
+                    className="cursor-pointer font-bold text-black text-2xl bg-white/60 px-6 py-2 rounded-2xl hover:bg-white/90 transition duration-300"
                     onClick={() => navigate("/Chat")}
                 >
                     Se connecter
