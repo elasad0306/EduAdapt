@@ -12,7 +12,7 @@ function Home(){
                 <div className="absolute bottom-80">
                     <img className="mx-auto" src={Logo} alt="logo"></img>
                     <h1 className="mt-10 font-bold text-white text-3xl  p-1 rounded-2xl ">De vos cours à la réussite... en un clic.</h1>
-                    <div className="flex justify-center align-center"><Button NameButton="Se connecter" style=" p-3 bg-gray-200 rounded-lg " onClick={()=>navigate("/Inscription")}/></div>
+                    <div className="flex justify-center align-center"><Button NameButton="Se connecter" style=" p-3 bg-gray-200 rounded-lg " onClick={()=>navigate("/Registration")}/></div>
                 </div>
             </div>
         </div>
