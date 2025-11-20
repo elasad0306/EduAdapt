@@ -1,8 +1,8 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router';
 import Home from './pages/Home'
-// import Connexion from './pages/Connexion';
 import Registration from './pages/Registration';
+import Connexion from './pages/Connexion';
 
 function App() {
 
@@ -11,7 +11,8 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/Inscription' element={<Registration/>}/>
+        <Route path='/Registration' element={<Registration/>}/>
+        <Route path='/Connexion' element={<Connexion/>}/>
       </Routes>
     </Router>
   )
