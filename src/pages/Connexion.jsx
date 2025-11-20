@@ -21,7 +21,7 @@ function Connexion(){
             <div className="flex justify-center align-center"> 
                 <Button 
                 NameButton="Se connecter" 
-                style="border border-green-300 w-max  text-green-300 p-2 rounded hover:bg-green-300 hover:text-white"/>
+                style="cursor-pointer transition duration-300 border border-green-300 w-max  text-green-300 p-2 rounded hover:bg-green-300 hover:text-white"/>
             </div>
             
             <div className="text-center">

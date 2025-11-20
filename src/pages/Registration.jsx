@@ -16,7 +16,7 @@ function Registration() {
                 <InputWithLabel NameLabel="Mot de passe*" idInput="password" style="border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2"/>
                 <p className="text-sm">* Champs obligatoires</p>
                 <div className="flex justify-center align-center">
-                    <Button NameButton="S'inscrire" style="border border-green-300 w-max  text-green-300 p-2 rounded hover:bg-green-300 hover:text-white"/>
+                    <Button NameButton="S'inscrire" style="cursor-pointer transition duration-300 border border-green-300 w-max  text-green-300 p-2 rounded hover:bg-green-300 hover:text-white"/>
                 </div>
                 
                 <div className="text-center">
