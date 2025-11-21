@@ -4,18 +4,20 @@ import Home from './pages/Home'
 import Registration from './pages/Registration';
 import Connexion from './pages/Connexion';
 import Chat from './pages/Chat';
+import Profile from './pages/Profile';
 
 function App() {
 
 
   return (
     <Router>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/Registration' element={<Registration/>}/>
-        <Route path='/Connexion' element={<Connexion/>}/>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/Registration' element={<Registration/>}/>
+          <Route path='/Connexion' element={<Connexion/>}/>
           <Route path='/Chat' element={<Chat/>}/>
-      </Routes>
+          <Route path='/Profile' element={<Profile/>}/>
+        </Routes>
     </Router>
   )
 }

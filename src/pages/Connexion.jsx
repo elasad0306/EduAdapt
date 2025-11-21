@@ -1,6 +1,6 @@
 import Button from "../Components/Buttons/Button"
 import InputWithLabel from "../components/InputWithLabel/InputWithLabel"
-import Navbar from '../Components/Navbar' 
+import Navbar from '../Components/Navbar'
 import { Link } from 'react-router';
 
 function Connexion(){

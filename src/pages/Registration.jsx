@@ -1,6 +1,7 @@
 import InputWithLabel from '../components/InputWithLabel/InputWithLabel';
 import Button from '../Components/Buttons/Button';
-import Navbar from '../Components/Navbar' 
+import Footer from '../Components/Footer';
+import Navbar from '../Components/Navbar'
 import { Link } from 'react-router';
 
 

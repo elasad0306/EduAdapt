@@ -1,7 +1,8 @@
 import Logo from '../assets/picture/logoEduAdapt.png'
 import background_picture from '../assets/picture/home_picture.jpg'
 import Button from '../Components/Buttons/Button'
-import Navbar from '../Components/Navbar' 
+import Footer from '../Components/Footer';
+import Navbar from '../Components/Navbar'
 import { useNavigate } from 'react-router'
 
 function Home(){
@@ -29,6 +30,7 @@ function Home(){
                 </button>
             </div>
         </div>
+        <Footer />
         </>
     )
 }
