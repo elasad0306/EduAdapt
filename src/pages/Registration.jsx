@@ -1,10 +1,13 @@
 import InputWithLabel from '../components/InputWithLabel/InputWithLabel';
 import Button from '../Components/Buttons/Button';
+import Navbar from '../Components/Navbar' 
 import { Link } from 'react-router';
 
 
 function Registration() {
     return (
+        <>
+        <Navbar />
         <div className="sky-blue-bg min-h-screen flex items-center justify-center text-black">
             <form className="form-card bg-white border-gray-900 border p-6 flex flex-col space-y-4 w-150" action="" method="POST">
                 <h1 className="text-2xl font-semibold text-center">Inscription</h1>
@@ -24,6 +27,7 @@ function Registration() {
                 </div>
             </form>
         </div>
+        </>
     );
 }
 

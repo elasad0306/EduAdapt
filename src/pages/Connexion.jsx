@@ -1,9 +1,12 @@
 import Button from "../Components/Buttons/Button"
 import InputWithLabel from "../components/InputWithLabel/InputWithLabel"
+import Navbar from '../Components/Navbar' 
 import { Link } from 'react-router';
 
 function Connexion(){
     return(
+        <>
+        <Navbar />
         <div className=" sky-blue-bg min-h-screen flex items-center justify-center text-black">
             <form className="form-card border-gray-900 border p-6 flex flex-col space-y-4 w-150">
             <h1 className="text-2xl font-semibold text-center">Connexion</h1>
@@ -29,7 +32,7 @@ function Connexion(){
             </div>
             </form>
         </div>
-       
+        </>
     )
 }
 export default Connexion
