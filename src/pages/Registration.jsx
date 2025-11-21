@@ -1,15 +1,23 @@
 import InputWithLabel from '../components/InputWithLabel/InputWithLabel';
 import Button from '../Components/Buttons/Button';
+import { useNavigate } from 'react-router';
 import { Link } from 'react-router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 const API_URL = 'http://localhost:8000/api'
 
 
 function Registration() {
+    const navigate = useNavigate()
+    const [data, setData] = useState({
+        success: false,
+        message: ''
+    })
     const  [userData, setUserData] = useState({
         firstname: '',
         lastname: '',
         email: '',
+        address: '',
+        phonenumber: '',
         password: '',
 
     })
@@ -35,6 +43,24 @@ function Registration() {
             })
             const data = await response.json()
 
+            setData({
+                success: data.success,
+                message: data.message
+            })
+
+            if(data.success === true){
+                return (
+                    setUserData({
+                        firstname: '',
+                        lastname: '',
+                        email: '',
+                        address: '',
+                        phonenumber: '',
+                        password: '',
+                    }),
+                    navigate('/Chat')
+                )
+            }
 
             if(!response.ok){
                 throw new Error (data.message || 'Erreur lors de l\'inscription')
@@ -56,10 +82,12 @@ function Registration() {
                 NameLabel="Nom*" 
                 idInput="lastname" 
                 value={userData.lastname}
-                style="border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2  input-shadow"
+                style="border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2 input-shadow"
                 onChange={handleChange}
-                typeInput="text" 
+                typeInput="text"
+
                 />
+
 
                 <InputWithLabel 
                 NameLabel="Prénom*" 
@@ -79,15 +107,23 @@ function Registration() {
                 typeInput="email"
                 />
 
-                {/* <InputWithLabel 
+                <InputWithLabel 
                 NameLabel="Adresse" 
-                idInput="address" 
-                style="border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2 input-shadow"/>
+                idInput="address"
+                value={userData.address} 
+                style="border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2 input-shadow"
+                onChange={handleChange}
+                typeInput="text"
+                />
 
                 <InputWithLabel 
                 NameLabel="Téléphone" 
-                idInput="phoneNumber" 
-                style="border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2 input-shadow"/> */}
+                idInput="phoneNumber"
+                value={userData.phonenumber}
+                style="border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2 input-shadow"
+                onChange={handleChange}
+                typeInput="tel"
+                />
 
                 <InputWithLabel 
                 NameLabel="Mot de passe*" 
@@ -98,6 +134,7 @@ function Registration() {
                 typeInput="password"
                 />
                 <p className="text-sm">* Champs obligatoires</p>
+                {!data.success && (<div><p className='text-red-500'> {data.message}</p></div>)}
                 <div className="flex justify-center align-center">
                     <Button NameButton="S'inscrire" type="submit" style="cursor-pointer transition duration-300 border border-green-300 w-max  text-green-300 p-2 rounded hover:bg-green-300 hover:text-white"/>
                 </div>
