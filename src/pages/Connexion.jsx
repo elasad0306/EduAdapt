@@ -1,22 +1,25 @@
 import Button from "../Components/Buttons/Button"
 import InputWithLabel from "../components/InputWithLabel/InputWithLabel"
+import Navbar from '../Components/Navbar' 
 import { Link } from 'react-router';
 
 function Connexion(){
     return(
-        <div className="min-h-screen flex items-center justify-center text-black">
-            <form className="border-gray-900 border p-6 flex flex-col space-y-4 w-150">
+        <>
+        <Navbar />
+        <div className=" sky-blue-bg min-h-screen flex items-center justify-center text-black">
+            <form className="form-card border-gray-900 border p-6 flex flex-col space-y-4 w-150">
             <h1 className="text-2xl font-semibold text-center">Connexion</h1>
             <InputWithLabel 
             NameLabel="E-mail" 
             idInput="email" 
-            style="border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2"
+            style="input-shadow border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2"
             />
 
             <InputWithLabel 
             NameLabel="Mot de passe" 
             idInput="password" 
-            style="border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2"
+            style="input-shadow border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2"
             />
             <div className="flex justify-center align-center"> 
                 <Button 
@@ -29,7 +32,7 @@ function Connexion(){
             </div>
             </form>
         </div>
-       
+        </>
     )
 }
 export default Connexion

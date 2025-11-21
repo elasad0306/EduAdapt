@@ -1,1 +1,24 @@
 @import "tailwindcss";
+.sky-blue-bg {
+	background-color: #6eb6d3;
+	min-height: 100vh;
+}
+.form-card {
+	background-color: #ffffff;
+	border-radius: 12px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+	border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.input-shadow {
+	border-radius: 8px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+	transition: box-shadow 200ms ease, border-color 200ms ease;
+	background-color: #ffffff;
+}
+
+.input-shadow:focus {
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+	outline: none;
+	border-color: rgb(19, 177, 250); 
+}
