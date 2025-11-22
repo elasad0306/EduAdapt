@@ -1,16 +1,38 @@
-# React + Vite
+# EduAdapt
+## 🎯 Problématique  
+Application web qui transforme n'importe quel contenu éducatif en expériences d'apprentissage interactives adaptées au niveau de chaque étudiant, générant automatiquement **quiz**, **flashcards** et **résumés**.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🛠️ Stack technique recommandée
+- Interface **React** avec composants d'apprentissage réutilisables  
+- Intégration d'**APIs d'IA** (OpenAI, Gemini) pour la génération de contenu  
+- Système de progression avec **localStorage** et analytics  
+- **Gamification** : badges, récompenses, classements  
+- Algorithmes adaptatifs pour la **personnalisation du parcours**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📋 Options de réalisation
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+### 🔹 Niveau Basique
+- Support de **textes et PDFs**  
+- Génération de **3 types d'exercices**  
+- Système de progression **linéaire**
 
-## Expanding the ESLint configuration
+### 🔹 Niveau Intermédiaire
+- Adaptation à **3 niveaux de difficulté**  
+- **Recommandations personnalisées**  
+- Collaboration entre étudiants
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🔹 Niveau Avancé
+- IA adaptive avec **machine learning**  
+- Génération automatique de **cours complets**  
+- **Analytics prédictifs** de réussite
+
+---
+
+## 📈 Impact attendu
+➡️ **Amélioration de 40 % de la rétention d'information** chez les étudiants utilisateurs.
+
+
