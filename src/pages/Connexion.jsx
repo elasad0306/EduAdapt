@@ -7,7 +7,7 @@ function Connexion(){
     return(
         <>
         <Navbar />
-            <div className="sky-blue-bg" h-screen flex items-center justify-center pb-50 text-black">
+            <div className="sky-blue-bg h-screen flex items-center justify-center pb-50 text-black">
                 <form
                     className="bg-white border border-gray-900 p-6 flex-col space-y-4 w-full max-w-md rounded shadow-lg"
                 >
