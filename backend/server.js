@@ -10,6 +10,12 @@ app.use(express.urlencoded({ extended: true }))
 //Inscription utilisateurs
 app.post('/api/register', require('./routes/authentification'))
 
+//Connexion de l'utilisateur
+app.post('/api/login', require('./routes/authentification'))
+
+
+
+
 
 app.get('/api/users', (req,res) =>{
     req = "SELECT * FROM user"
