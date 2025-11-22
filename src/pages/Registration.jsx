@@ -76,9 +76,7 @@ function Registration() {
 
     return (
         <div className="min-h-screen flex items-center justify-center sky-blue-bg text-black">
-            <form
-                className="bg-white border border-gray-900 p-6 flex flex-col space-y-4 w-150 shadow-lg rounded"
-                onSubmit={registerUser}>
+            <form className="bg-white border-gray-900 border p-6 flex flex-col space-y-4 w-150 rounded" onSubmit={registerUser}>
                 <h1 className="text-2xl font-semibold text-center">Inscription</h1>
                 <InputWithLabel 
                 NameLabel="Nom*" 
@@ -87,7 +85,6 @@ function Registration() {
                 style="border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2 input-shadow"
                 onChange={handleChange}
                 typeInput="text"
-
                 />
 
 
