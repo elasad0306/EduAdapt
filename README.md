@@ -1,4 +1,6 @@
 # EduAdapt
+Projet d'école
+Sujet : 
 ## 🎯 Problématique  
 Application web qui transforme n'importe quel contenu éducatif en expériences d'apprentissage interactives adaptées au niveau de chaque étudiant, générant automatiquement **quiz**, **flashcards** et **résumés**.
 
