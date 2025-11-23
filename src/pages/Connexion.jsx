@@ -45,11 +45,12 @@ function Connexion(){
             })
             if(data.success == true){
                 return (
+                    localStorage.setItem('token', data.data.tokenUser),
                     setInformationEnter({
                         email: '',
                         password: ''
                     }),
-                    navigate('/Chat')
+                    navigate('/Profile')
                 )
             }
             if(!response.ok){

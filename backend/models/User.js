@@ -21,6 +21,13 @@ class User {
             phonenumber: phonenumber
         }
     }
+
+    static async findByID(id){
+        const [ids] = await connection.execute(
+            'SELECT id, firstname, lastname, email, address, phonenumber, password FROM users WHERE id = ?', [id]
+        )
+        return ids[0] || null
+    }
     //Pour rechercher un utilisateur à l'aide de son email
     static async findEmail(emailUser){
         const [email] = await connection.execute(

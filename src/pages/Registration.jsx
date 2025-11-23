@@ -50,6 +50,7 @@ function Registration() {
 
             if(data.success === true){
                 return (
+                    localStorage.setItem('token', data.data.tokenUser),
                     setUserData({
                         firstname: '',
                         lastname: '',
@@ -58,7 +59,7 @@ function Registration() {
                         phonenumber: '',
                         password: '',
                     }),
-                    navigate('/Chat')
+                    navigate('/Profile')
                 )
             }
 

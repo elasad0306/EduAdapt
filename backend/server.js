@@ -17,13 +17,7 @@ app.post('/api/login', require('./routes/authentification'))
 
 
 
-app.get('/api/users', (req,res) =>{
-    req = "SELECT * FROM user"
-    connection.query(req,(err, data) =>{
-        if(err) return res.json(err);
-        return res.json(data)
-    })
-})
+app.get('/api/profile', require('./routes/authentification'))
 app.listen(8000, ()=>{
     console.log("Listening");
     
