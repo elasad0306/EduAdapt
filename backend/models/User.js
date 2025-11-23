@@ -40,9 +40,9 @@ class User {
     //Ppour comprarer le mot de passe entrer par l'utilisateur avec celle stocker dans la bdd 
     static async comparePassword(passwordEnter, hashedPassword){
         return await bcrypt.compare(passwordEnter, hashedPassword)
-
     }
 
+    
 }
 
 module.exports = User
