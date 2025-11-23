@@ -9,7 +9,7 @@ class User {
 
 
         const [result] = await connection.execute(
-            'INSERT INTO user (firstname, lastname, email, address, phonenumber, password) VALUES (?, ?, ?, ?, ?, ?)',
+            'INSERT INTO users (firstname, lastname, email, address, phonenumber, password) VALUES (?, ?, ?, ?, ?, ?)',
             [firstname, lastname, email, address, phonenumber, hashedPassword]
         )
         return{
@@ -24,7 +24,7 @@ class User {
     //Pour rechercher un utilisateur à l'aide de son email
     static async findEmail(emailUser){
         const [email] = await connection.execute(
-            'SELECT * FROM user WHERE email = ?', [emailUser]
+            'SELECT * FROM users WHERE email = ?', [emailUser]
         )
         return email[0] || null 
     }
@@ -32,7 +32,7 @@ class User {
     // si emails.length = 1 alors l'email existe déjà  dans la base de donnée
     static async checkEmailExist(email){
         const [emails] = await connection.execute(
-            'SELECT id FROM user WHERE email = ?',[email]
+            'SELECT id FROM users WHERE email = ?',[email]
         )
         return emails.length > 0 
     } 
