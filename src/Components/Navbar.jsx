@@ -18,11 +18,13 @@ function Navbar() {
                     alt="Bouton 1"
                     className="h-10 cursor-pointer transition-transform duration-200 hover:scale-110"
                 />
+                <a href="/Profile">
                 <img
                     src={Profile}
                     alt="Bouton 2"
                     className="h-10 cursor-pointer transition-transform duration-200 hover:scale-110"
                 />
+                </a>
             </div>
         </nav>
     );
