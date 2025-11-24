@@ -1,32 +1,65 @@
-import Logo from '../assets/picture/logoEduAdapt.png'
-import background_picture from '../assets/picture/home_picture.jpg'
-import Button from '../Components/Buttons/Button'
-import { useNavigate } from 'react-router'
+import React from 'react';
+import { useNavigate } from 'react-router';
+import HeroSection from '../components/Home/HeroSection';
+import ZPatternSteps from '../components/Home/ZPatternSteps';
+import Header from '../components/Home/Header';
+import background_picture from '../assets/picture/doing-homework-together.jpg';
+import Picture1 from '../assets/picture/member-log-membership-username-password-concept.jpg';
+import Picture2 from '../assets/picture/business-hand-robot-handshake-artificial-intelligence-digital-transformation.jpg';
+import Picture3 from '../assets/picture/personalisedexercise.jpg'
+import Picture4 from '../assets/picture/profilepicture.jpg'
 
-function Home(){
-    const navigate = useNavigate()
-    return(
-        <div className="relative overflow-hidden h-screen">
-            <img
-                className="w-full h-screen object-cover"
-                src={background_picture}
-                alt="background"
+function Home() {
+    const navigate = useNavigate();
+
+    const stepsData = [
+        {
+            stepNumber: 1,
+            title: "Inscription",
+            description: "Inscrivez-vous ou connectez-vous pour accéder à votre espace étudiant personnel.",
+            image: Picture1,
+            imageAlt: "Inscription",
+            color: "blue"
+        },
+        {
+            stepNumber: 2,
+            title: "Discussion IA",
+            description: "Discutez avec notre intelligence artificielle, posez vos questions et recevez de l'aide instantanée.",
+            image: Picture2,
+            imageAlt: "Chat IA",
+            color: "green"
+        },
+        {
+            stepNumber: 3,
+            title: "Exercices personnalisés",
+            description: "Effectuez des quizzs ou exercices pour vous entrainer",
+            image: Picture3,
+            imageAlt: "Notifications",
+            color: "yellow"
+        },
+        {
+            stepNumber: 4,
+            title: "Profil Étudiant",
+            description: "Accédez à votre profil, modifiez vos informations et voyez vos résultats.",
+            image: Picture4,
+            imageAlt: "Profil étudiant",
+            color: "purple"
+        }
+    ];
+
+    return (
+        <div className="w-full h-full overflow-auto">
+
+            <HeroSection
+                backgroundImage={background_picture}
+                title="De vos cours à la réussite... en un clic."
+                buttonText="Commencer maintenant"
+                onButtonClick={() => navigate("/Connexion")}
             />
-
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <img className="mx-auto -mt-20" src={Logo} alt="logo" />
-
-                <h1 className="mt-10 font-bold text-white text-3xl bg-white/5 p-2 rounded-2xl mb-8">
-                    De vos cours à la réussite... en un clic.
-                </h1>
-
-                <button
-                    className="cursor-pointer font-bold text-black text-2xl bg-white/40 px-6 py-2 rounded-2xl hover:bg-white/80 transition duration-300"
-                    onClick={() => navigate("/Connexion")}>
-                    Se connecter
-                </button>
-            </div>
+            <Header />
+            <ZPatternSteps stepsData={stepsData} />
         </div>
-    )
+    );
 }
-export default Home
+
+export default Home;
