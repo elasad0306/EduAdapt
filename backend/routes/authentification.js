@@ -174,13 +174,52 @@ router.get('/api/profile', async (req, res) => {
                     lastname: user.lastname,
                     email: user.email,
                     address: user.address || '',
-                    phonenumber: user.phonenumber || ''
+                    phonenumber: user.phonenumber || '',
+                    password: user.password || ''
                 }
             }
         })
 
     } catch (error) {
         console.error('Erreur :', error);
+    }
+})
+// Mise à jour du profil (possibilité d'envoyer un avatar en base64 dans `req.body.avatar`)
+router.put('/api/profile', async (req, res) => {
+    try {
+        const authHeader = req.headers.authorization;
+        if (!authHeader) {
+            return res.status(401).json({ success: false, message: 'Token manquant' });
+        }
+
+        const token = authHeader.startsWith('Bearer') ? authHeader.slice(7) : authHeader;
+        if (!token || token === 'null' || token === 'undefined') {
+            return res.status(401).json({ success: false, message: 'Token invalide' });
+        }
+
+        const decoded = jwt.verify(token, 'secret');
+        const userId = decoded.id;
+
+        const { firstname, lastname, address, phonenumber, password } = req.body;
+
+        // Appel au modèle pour mettre à jour
+        const updateResult = await User.updateUser(userId, { firstname, lastname, address, phonenumber, password });
+
+        if(!updateResult){
+            return res.status(400).json({ success: false, message: 'Aucune donnée fournie pour mise à jour' });
+        }
+
+        const updatedUser = await User.findByID(userId);
+
+        return res.status(200).json({
+            success: true,
+            message: 'Profil mis à jour avec succès',
+            data: { user: updatedUser }
+        })
+
+    } catch (error) {
+        console.error('Erreur mise à jour profil :', error);
+        return res.status(500).json({ success: false, message: error.message || 'Erreur lors de la mise à jour du profil' });
     }
 })
 module.exports = router

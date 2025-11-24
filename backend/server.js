@@ -8,16 +8,21 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 //Inscription utilisateurs
-app.post('/api/register', require('./routes/authentification'))
 
 //Connexion de l'utilisateur
-app.post('/api/login', require('./routes/authentification'))
 
 
 
 
 
 app.get('/api/profile', require('./routes/authentification'))
+// Mount authentication routes router (router defines the /api/* paths)
+app.use(require('./routes/authentification'))
+
+// Health check endpoint to verify server returns JSON
+app.get('/api/health', (req, res) => {
+    res.status(200).json({ success: true, message: 'Backend healthy' })
+})
 app.listen(8000, ()=>{
     console.log("Listening");
     

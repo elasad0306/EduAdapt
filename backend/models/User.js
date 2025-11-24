@@ -44,9 +44,32 @@ class User {
         return emails.length > 0 
     } 
 
-    //Ppour comprarer le mot de passe entrer par l'utilisateur avec celle stocker dans la bdd 
+    //Pour comparer le mot de passe entré par l'utilisateur avec celui stocké dans la bdd 
     static async comparePassword(passwordEnter, hashedPassword){
         return await bcrypt.compare(passwordEnter, hashedPassword)
+    }
+
+    static async updateUser(id, data){
+        const fields = []
+        const values = []
+
+        if(data.firstname !== undefined){ fields.push('firstname = ?'); values.push(data.firstname) }
+        if(data.lastname !== undefined){ fields.push('lastname = ?'); values.push(data.lastname) }
+        if(data.address !== undefined){ fields.push('address = ?'); values.push(data.address) }
+        if(data.phonenumber !== undefined){ fields.push('phonenumber = ?'); values.push(data.phonenumber) }
+        if(data.password !== undefined){ 
+            const salt = await bcrypt.genSalt(12)
+            const hashedPassword = await bcrypt.hash(data.password, salt)
+            fields.push('password = ?'); 
+            values.push(hashedPassword) 
+        }
+        if(fields.length === 0) return null
+
+        values.push(id)
+
+        const sql = `UPDATE users SET ${fields.join(', ')} WHERE id = ?`
+        const [result] = await connection.execute(sql, values)
+        return result
     }
 
     

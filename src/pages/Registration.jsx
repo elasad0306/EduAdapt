@@ -1,4 +1,4 @@
-import InputWithLabel from '../components/InputWithLabel/InputWithLabel';
+import InputWithLabel from '../Components/InputWithLabel/InputWithLabel';
 import Button from '../Components/Buttons/Button';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router';
