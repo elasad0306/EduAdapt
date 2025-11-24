@@ -1,6 +1,11 @@
 const express = require('express')
 const router = express.Router()
+const jwt = require('jsonwebtoken')
 const User = require('../models/User')
+
+const tokenGenerator = (id) =>{
+    return jwt.sign({id}, 'secret', {expiresIn: '30d'})
+}
 
 router.post('/api/register', async (req, res) =>{
     try {
@@ -38,6 +43,8 @@ router.post('/api/register', async (req, res) =>{
             password
         })
 
+        const tokenUser = tokenGenerator(user.id)
+
         res.status(201).json({
             success: true,
             message: 'Compte crée avec succès',
@@ -47,7 +54,8 @@ router.post('/api/register', async (req, res) =>{
                     lastname: user.lastname,
                     email: user.email,
                     address: user.address,
-                }
+                },
+                tokenUser
             }
         })
     }catch(error){
@@ -87,6 +95,7 @@ router.post('/api/login', async(req, res) =>{
             })
         }
 
+        const tokenUser = tokenGenerator(user.id)
         res.status(201).json({
             success: true,
             message: "Vous êtes désormais connecté",
@@ -97,39 +106,10 @@ router.post('/api/login', async(req, res) =>{
                     email: user.email,
                     address: user.address,
                     phonenumber: user.phonenumber
-                }
+                }, 
+                tokenUser
             }
         })
-
-        // if(user){
-        //     const isPasswordValid = User.comparePassword(password, user.password)
-        //     if(isPasswordValid){
-        //         res.json({
-        //             success: true,
-        //             message: "Connexion réussie",
-        //             data:{
-        //                 id: user.id,
-        //                 firstname: user.firstname,
-        //                 lastname: user.lastname,
-        //                 emai: user.email,
-        //                 address: user.address,
-        //                 phonenumber: user.phonenumber
-        //             }
-
-        //         })
-        //     }else{
-        //         res.status(400).json({
-        //             success: false,
-        //             message: "Mot de passe incorrect"
-        //         })
-        //     }
-
-        // }else{
-        //         return res.status(400).json({
-        //             success: false,
-        //             message: "Email ou mot de passe incorrect"
-        //         })
-        //     }
     }catch(error){
         console.error('Erreur inscription : ', error);
         
@@ -137,6 +117,70 @@ router.post('/api/login', async(req, res) =>{
             success: false,
             message: error.message || "Erreur lors de la connexion"
         })
+    }
+})
+
+
+router.get('/api/profile', async (req, res) => {
+    try {
+        
+        // Récupération du token depuis les headers
+        const authHeader = req.headers.authorization;
+        // console.log('Authorization header:', authHeader);
+
+        if (!authHeader) {
+            // console.log('Authorization header manquant');
+            return res.status(401).json({
+                success: false,
+                message: 'Token manquant'
+            });
+        }
+
+        // Extraction du token
+        const token = authHeader.startsWith('Bearer') ? authHeader.slice(7) : authHeader;
+
+        // console.log('Token extrait:', token);
+
+        if (!token || token === 'null' || token === 'undefined') {
+            return res.status(401).json({
+                success: false,
+                message: 'Token invalide'
+            });
+        }
+
+        // Pour vérifier le token récupéré
+        const decoded = jwt.verify(token, 'secret');
+        // console.log('Token décodé:', decoded);
+
+        //Pour rechercher l'utilisateur selon id , récupéré dans la le token
+        const user = await User.findByID(decoded.id);
+        // console.log('Utilisateur trouvé:', user);
+
+        if (!user) {
+            // console.log('Utilisateur non trouvé pour ID:', decoded.id);
+            return res.status(404).json({
+                success: false,
+                message: 'Utilisateur non trouvé'
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: 'Profil récupéré avec succès',
+            data: {
+                user: {
+                    id: user.id,
+                    firstname: user.firstname,
+                    lastname: user.lastname,
+                    email: user.email,
+                    address: user.address || '',
+                    phonenumber: user.phonenumber || ''
+                }
+            }
+        })
+
+    } catch (error) {
+        console.error('Erreur :', error);
     }
 })
 module.exports = router

@@ -21,6 +21,13 @@ class User {
             phonenumber: phonenumber
         }
     }
+
+    static async findByID(id){
+        const [ids] = await connection.execute(
+            'SELECT id, firstname, lastname, email, address, phonenumber, password FROM users WHERE id = ?', [id]
+        )
+        return ids[0] || null
+    }
     //Pour rechercher un utilisateur à l'aide de son email
     static async findEmail(emailUser){
         const [email] = await connection.execute(
@@ -40,9 +47,9 @@ class User {
     //Ppour comprarer le mot de passe entrer par l'utilisateur avec celle stocker dans la bdd 
     static async comparePassword(passwordEnter, hashedPassword){
         return await bcrypt.compare(passwordEnter, hashedPassword)
-
     }
 
+    
 }
 
 module.exports = User

@@ -10,7 +10,8 @@ function Home(){
             <img
                 className="w-full h-screen object-cover"
                 src={background_picture}
-                alt="background"/>
+                alt="background"
+            />
 
             <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <img className="mx-auto -mt-20" src={Logo} alt="logo" />

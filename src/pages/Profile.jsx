@@ -1,9 +1,70 @@
+import { useEffect, useState } from 'react';
 import '../App.css'
 import Button from '../Components/Buttons/Button';
 import Footer from '../Components/Footer';
 import Navbar from "../Components/Navbar";
 import profileImg from '../assets/picture/profil_utilisateur.png';
+const API_URL = 'http://localhost:8000/api'
 function Profile(){
+    const [user, setUser] = useState({
+        firstname: '',
+        lastname: '',
+        emai: '',
+        address: '',
+        phonenumber: '',
+
+    })
+    const getProfile = async () =>{
+        try{
+            const token = localStorage.getItem('token')
+            // console.log('Token récupéré:', token);
+
+            if(!token){
+                throw new Error('Utilisateur non connecté')
+            }
+
+            const response = await fetch(`${API_URL}/profile`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                    
+            })
+            // console.log('Réponse HTTP:', response.status, response.statusText);
+            const data = await response.json()
+            // console.log(data);
+            
+
+            if(!data){
+                throw new Error(data.message || 'Erreur durant la récupération du profil')
+            }
+            return data
+        }catch(error){
+            console.error('Erreur profil : ', error)
+            throw error
+        }
+    }
+    useEffect(() =>{
+        const displayProfile = async () =>{
+            try{
+                const result = await getProfile()
+
+                setUser({
+                    firstname: result.data.user.firstname,
+                    lastname: result.data.user.lastname,
+                    email: result.data.user.email,
+                    address: result.data.user.address,
+                    phonenumber: result.data.user.phonenumber,
+                })
+            }catch(error){
+                throw new Error (error.message || 'Erreur lors du chargement de profil')
+            }
+        }
+        displayProfile()
+    }, [])
+
+
     return(
         <>
         <Navbar />
@@ -20,11 +81,11 @@ function Profile(){
                     <div className="flex flex-col basis-2/3 ml-4 bg-white p-6 rounded-lg shadow-md">
                             <h1 className="text-2xl text-center mt-4">Profil Utilisateur</h1>
                         <div className="mt-4 mb-6 space-y-3 text-xl">
-                            <p> Nom: Test</p>
-                            <p> Prénom: Test</p>
-                            <p> Email: Test</p>
-                            <p> Address: Test@test.com</p>
-                            <p> Contact: 123-456-7890</p>
+                            <p> Nom: {user.lastname}</p>
+                            <p> Prénom: {user.firstname}</p>
+                            <p> Email: {user.email}</p>
+                            <p> Address: {user.address || 'Non renseigné'}</p>
+                            <p> Contact: {user.phonenumber || 'Non renseigné'}</p>
                             <p> Mot de passe: ********</p>
                         </div>
                         <div className="flex justify-end">
@@ -36,29 +97,29 @@ function Profile(){
                 </div>
                 <div className="flex flex-col p-6 rounded-lg shadow-lg bg-cover bg-center mt-6 mb-6">
                     <h2 className="text-center mt-6 text-2xl mb-6"> Historique D'activités</h2>
-                    <table class="border-separate border border-gray-400 mt-4 mb-6">
+                    <table className="border-separate border border-gray-400 mt-4 mb-6">
                         <thead>
                             <tr>
-                            <th class="border border-gray-300 px-6 py-3 ">Cours</th>
-                            <th class="border border-gray-300 px-6 py-3 ">Impression</th>
-                            <th class="border border-gray-300 px-6 py-3 ">Score</th>
+                            <th className="border border-gray-300 px-6 py-3 ">Cours</th>
+                            <th className="border border-gray-300 px-6 py-3 ">Impression</th>
+                            <th className="border border-gray-300 px-6 py-3 ">Score</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                            <td class="border border-gray-300 px-6 py-3 ">Anglais</td>
-                            <td class="border border-gray-300 px-6 py-3 ">Moyen</td>
-                            <td class="border border-gray-300 px-6 py-3 ">10</td>
+                            <td className="border border-gray-300 px-6 py-3 ">Anglais</td>
+                            <td className="border border-gray-300 px-6 py-3 ">Moyen</td>
+                            <td className="border border-gray-300 px-6 py-3 ">10</td>
                             </tr>
                             <tr>
-                            <td class="border border-gray-300 px-6 py-3 ">Mathématiques</td>
-                            <td class="border border-gray-300 px-6 py-3 ">Assez Bien</td>
-                            <td class="border border-gray-300 px-6 py-3 ">15</td>
+                            <td className="border border-gray-300 px-6 py-3 ">Mathématiques</td>
+                            <td className="border border-gray-300 px-6 py-3 ">Assez Bien</td>
+                            <td className="border border-gray-300 px-6 py-3 ">15</td>
                             </tr>
                             <tr>
-                            <td class="border border-gray-300 px-6 py-3 ">Informatique</td>
-                            <td class="border border-gray-300 px-6 py-3 ">Excellent !</td>
-                            <td class="border border-gray-300 px-6 py-3 ">17</td>
+                            <td className="border border-gray-300 px-6 py-3 ">Informatique</td>
+                            <td className="border border-gray-300 px-6 py-3 ">Excellent !</td>
+                            <td className="border border-gray-300 px-6 py-3 ">17</td>
                             </tr>
                         </tbody>
                     </table>
