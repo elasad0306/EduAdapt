@@ -1,7 +1,4 @@
 import '../App.css'
-import LogoWhite from '../assets/picture/logoEduAdaptWhiteVersion.png'
-import Bell from '../assets/picture/bell.png'
-import Profile from '../assets/picture/profile.jpg'
 import Plus from '../assets/picture/plus.png'
 import Execute from '../assets/picture/up-arrow.png'
 import { useState, useRef } from 'react'

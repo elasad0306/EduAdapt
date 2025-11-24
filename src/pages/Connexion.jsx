@@ -1,6 +1,5 @@
 import Button from "../Components/Buttons/Button"
 import InputWithLabel from "../components/InputWithLabel/InputWithLabel"
-import Navbar from '../Components/Navbar'
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router';
 import {useState}  from 'react'

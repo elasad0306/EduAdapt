@@ -89,7 +89,7 @@ function Profile(){
                             <p> Mot de passe: ********</p>
                         </div>
                         <div className="flex justify-end">
-                            <a href="/Modif">
+                            <a href="/Modifprofile">
                                 <Button NameButton="Modifier" style=" py-2 px-9 cursor-pointer transition duration-300 border border-blue-300 text-blue-300  rounded hover:bg-blue-300 hover:text-white"/>               
                             </a>
                         </div>

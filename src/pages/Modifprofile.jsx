@@ -21,7 +21,7 @@ function Modifprofile(){
 		try{
 			return JSON.parse(text)
 		}catch(err){
-			console.error('Réponse non-JSON reçue du serveur:', text)
+			console.error('Réponse non-JSON reçue du serveur:', err)
 			throw new Error('Réponse non-JSON reçue du serveur')
 		}
 	}
