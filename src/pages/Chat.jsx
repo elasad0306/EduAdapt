@@ -6,34 +6,7 @@ import Plus from '../assets/picture/plus.png'
 import Execute from '../assets/picture/up-arrow.png'
 import { useState, useRef } from 'react'
 
-function Navbar() {
-    return (
-        <nav className="flex justify-between items-center bg-gray-800 p-3 text-white">
-            {/* Logo à gauche */}
-            <a href="/Chat">
-                <img
-                    src={LogoWhite}
-                    alt="Logo"
-                    className="h-12 cursor-pointer transition-transform duration-200 hover:scale-110"
-                />
-            </a>
-
-            {/* Icônes à droite */}
-            <div className="flex space-x-6">
-                <img
-                    src={Bell}
-                    alt="Notifications"
-                    className="h-10 cursor-pointer transition-transform duration-200 hover:scale-110"
-                />
-                <img
-                    src={Profile}
-                    alt="Profil"
-                    className="h-10 cursor-pointer transition-transform duration-200 hover:scale-110"
-                />
-            </div>
-        </nav>
-    );
-}
+const API_URL = "http://localhost:8000/api"
 
 function CenterInput() {
     const fileInputRef = useRef(null);
@@ -119,6 +92,9 @@ function CenterInput() {
 }
 
 export default function App() {
+    const [iaResponse, setIaResponse] = useState(null)
+
+    
     return (
         <div className="h-screen flex flex-col">
             <Navbar />
