@@ -59,7 +59,7 @@ function Registration() {
                         phonenumber: '',
                         password: '',
                     }),
-                    navigate('/Profile')
+                    navigate('/Chat')
                 )
             }
 

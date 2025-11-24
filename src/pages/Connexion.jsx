@@ -50,7 +50,7 @@ function Connexion(){
                         email: '',
                         password: ''
                     }),
-                    navigate('/Profile')
+                    navigate('/Chat')
                 )
             }
             if(!response.ok){
