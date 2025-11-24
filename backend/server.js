@@ -24,6 +24,9 @@ app.get('/api/users', (req,res) =>{
         return res.json(data)
     })
 })
+
+app.get('/api/ia', require('./routes/ChatIA'))
+
 app.listen(8000, ()=>{
     console.log("Listening");
     
