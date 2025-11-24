@@ -5,6 +5,7 @@ import Registration from './pages/Registration';
 import Connexion from './pages/Connexion';
 import Chat from './pages/Chat';
 import Profile from './pages/Profile';
+import Publications from './pages/Publications';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path='/Connexion' element={<Connexion/>}/>
         <Route path='/Chat' element={<Chat/>}/>
         <Route path='/Profile' element={<Profile/>}/>
+        <Route path='/Publications' element={<Publications/>}/>
       </Routes>
     </Router>
   )
