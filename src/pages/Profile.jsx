@@ -2,7 +2,7 @@ import {useEffect, useState } from 'react';
 import '../App.css'
 import Button from '../Components/Buttons/Button';
 import Footer from '../components/Footer';
-import Navbar from "../components/Navbar";
+import Navbar from "../Components/Navbar";
 import profileImg from '../assets/picture/profil_utilisateur.png';
 const API_URL = 'http://localhost:8000/api'
 function Profile(){
@@ -70,11 +70,11 @@ function Profile(){
     return(
         <>
             <Navbar />
-            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center min-h-screen sm:p-6 lg:p-20 bg-sky-100">
+            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center max-h-screen sm:p-6 lg:p-20 bg-sky-100">
                 <div className="w-full max-w-4xl bg-white rounded-2xl shadow-xl overflow-hidden">
                     <div className="flex flex-col lg:flex-row">
 
-                        <div className="flex flex-col items-center p-6 lg:p-8 bg-gradient-to-b from-blue-50 to-sky-100 lg:w-1/3">
+                        <div className="flex flex-col items-center p-6 lg:p-8 bg-linear-to-b from-blue-50 to-sky-100 lg:w-1/3">
                             <img
                                 src={profileImg}
                                 alt="Profile"

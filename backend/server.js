@@ -5,7 +5,7 @@ const User = require('./models/User')
 const app = express()
 const {GoogleGenAI} = require('@google/genai')
 
-const ai = new GoogleGenAI({apiKey: "AIzaSyDQPKGYBF6mpuhiQtkQi-DGTfdM2xDI3qg"})
+const ai = new GoogleGenAI({apiKey: "AIzaSyB8-5wjBbteKeyvW8U9wGD-YsP35FU1aAw"})
 const promptInstruction = `As an educational assistant, generate structured content on the following theme: “[THEME]”.
 
 Specific instructions:
@@ -63,10 +63,12 @@ app.get('/api/profile', require('./routes/authentification'))
 app.put('/api/Modifprofile', require('./routes/authentification'))
 
 
-app.get('/api/ia', async (req, res) =>{
+app.post('/api/ia', async (req, res) =>{
+    // console.log(req.body.input);
+    
     const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
-        contents: "React",
+        contents: req.body.input,
         config: {
             systemInstruction: promptInstruction
         },
