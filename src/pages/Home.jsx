@@ -8,6 +8,8 @@ import Picture1 from '../assets/picture/member-log-membership-username-password-
 import Picture2 from '../assets/picture/business-hand-robot-handshake-artificial-intelligence-digital-transformation.jpg';
 import Picture3 from '../assets/picture/personalisedexercise.jpg'
 import Picture4 from '../assets/picture/profilepicture.jpg'
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 function Home() {
     const navigate = useNavigate();
@@ -48,18 +50,41 @@ function Home() {
     ];
 
     return (
+
+
         <div className="w-full h-full overflow-auto">
+            {/* Section Hero - SANS le bouton */}
+            <Navbar/>
 
             <HeroSection
                 backgroundImage={background_picture}
                 title="De vos cours à la réussite... en un clic."
-                buttonText="Commencer maintenant"
-                onButtonClick={() => navigate("/Connexion")}
+                // On retire le bouton de la HeroSection
             />
+
+            {/* Header */}
             <Header />
+
+            {/* Section étapes en Z */}
             <ZPatternSteps stepsData={stepsData} />
+
+            <div className="w-full bg-gradient-to-br bg-sky-100 py-16 sm:py-20">
+                <div className="max-w-4xl mx-auto px-4 text-center">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
+                        Prêt à apprendre ?
+                    </h2>
+                    <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                        Rejoignez des milliers d'étudiants qui ont déjà transformé leur façon d'apprendre avec EduAdapt
+                    </p>
+                    <button
+                        className="cursor-pointer font-bold text-white text-xl bg-gradient-to-r from-blue-500 to-blue-600 px-10 py-4 rounded-2xl hover:from-blue-600 hover:to-blue-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                        onClick={() => navigate("/Connexion")}>
+                        Commencer maintenant
+                    </button>
+                </div>
+            </div>
+            <Footer />
         </div>
     );
 }
-
 export default Home;

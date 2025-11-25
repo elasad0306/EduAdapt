@@ -1,4 +1,3 @@
-import Bell from '../assets/picture/bell.png';
 import LogoWhite from '../assets/picture/logoEduAdaptWhiteVersion.png';
 import Profile from '../assets/picture/profile.jpg';
 
@@ -13,11 +12,6 @@ function Navbar() {
                 />
             </a>
             <div className="flex space-x-6">
-                <img
-                    src={Bell}
-                    alt="Bouton 1"
-                    className="h-10 cursor-pointer transition-transform duration-200 hover:scale-110"
-                />
                 <a href="/Profile">
                 <img
                     src={Profile}
