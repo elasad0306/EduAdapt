@@ -14,7 +14,6 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Home/>}/>
-          <Route path='/Home' element={<Home/>}/>
         <Route path='/Registration' element={<Registration/>}/>
         <Route path='/Connexion' element={<Connexion/>}/>
         <Route path='/Chat' element={<Chat/>}/>
