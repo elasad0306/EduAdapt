@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import '../App.css'
 import Button from '../Components/Buttons/Button';
 import Footer from '../components/Footer';
@@ -63,8 +63,10 @@ function Profile(){
         }
         displayProfile()
     }, [])
-
-
+    const deconnexion = () =>{
+        localStorage.removeItem('token')
+        window.location.href = '/';
+    }
     return(
         <>
         <Navbar />
@@ -76,7 +78,8 @@ function Profile(){
                     alt="Profile"
                     className="w-60 h-60 rounded-full object-cover border-4 border-white shadow-lg mt-6"
                     />
-                        <h2 className="text-xl font-semibold mt-4">{user.firstname} {user.lastname}</h2>
+                        <h2 className="text-xl font-semibold mt-4">{user.firstname} {user.lastname}</h2>  
+                        <Button onClick={deconnexion} NameButton="Se déconnecter" style=" mt-4 py-2 px-9 cursor-pointer transition duration-300 border border-red-300 text-red-300  rounded hover:bg-red-300 hover:text-white"/>
                     </div>
                     <div className="flex flex-col basis-2/3 ml-4 bg-white p-6 rounded-lg shadow-md">
                             <h1 className="text-2xl text-center mt-4">Profil Utilisateur</h1>
