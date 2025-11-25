@@ -5,13 +5,16 @@ import Execute from '../assets/picture/up-arrow.png'
 import { useState, useRef } from 'react'
 
 import Navbar from '../Components/Navbar'
-import { LoaderPinwheel } from 'lucide-react';
+import { LoaderPinwheel, Send } from 'lucide-react';
+
 
 const API_URL = "http://localhost:8000/api"
 
 function CenterInput() {
     const fileInputRef = useRef(null);
-    const [inputValue, setInputValue] = useState("");
+    const [inputValue, setInputValue] = useState({
+        input : ''
+    });
     const [fileName, setFileName] = useState("");
     const [data, setData] = useState({
         success: false,
@@ -42,14 +45,23 @@ function CenterInput() {
     //     console.log("Fichier :", fileName);
     // };
 
+    
     async function chatAI() {
+        
         try{
+            if(inputValue.input.trim() === ""){
+                return (
+                    alert("Veuillez votre demande 😊"),
+                    window.location.href = "/Chat"
+            )
+            }
             setLoader(true)
             const response = await fetch(`${API_URL}/ia`, {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                body: JSON.stringify(inputValue)
             })
 
             const data = await response.json()
@@ -69,6 +81,10 @@ function CenterInput() {
                     difficulty : data.result.difficulty,
                     resume: data.result.resume
                 })
+
+                setInputValue({
+                    input: ''
+                })
             }
             
         }catch(error){
@@ -81,61 +97,45 @@ function CenterInput() {
         
     }
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-sky-100">
+        <div className="flex flex-col items-center justify-center h-full gap-4 bg-sky-100">
             {/* Carte contenant champ + boutons */}
             <div className="w-full max-w-md">
-                <p className="mb-15 text-lg font-semibold text-gray-800">
-                    Bonjour, comment puis-je vous aider aujourd'hui ?
-                </p>
+                <h1 className="mb-15 text-lg w-max text-center font-bold text-gray-800">
+                    Hello, je suis là pour t'aider à réviser tes cours et à mieux les assimiler.
+                </h1>
             </div>
-            {loader && <LoaderPinwheel className='mx-auto animate-spin text-blue-500' />}
-            {data.success && <div className='w-100 h-100'>
-                <h1><strong>Thème : </strong>{iaResponse.theme}</h1>
-                <h2><strong>Difficulté : </strong>{iaResponse.difficulty}</h2>
-                <h3><strong>Résumé : </strong></h3>
-                <div className='max-w-4xl mx-auto p-6  rounded-lg '>{iaResponse.resume}</div>
+            
+            {loader && <LoaderPinwheel className='mx-auto animate-spin text-blue-500' size={64}/>}
+            {data.success && loader && (<p>Impossible de récupérer les données</p>)}
+            {data.success && <div className='flex flex-col text-left w-100'>
+                <h2><strong>Thème : </strong>{iaResponse.theme}</h2>
+                <h2><strong>Résumé : </strong></h2>
+                {iaResponse.resume}
                 <br/>
                 </div>
                 
             }
             <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <div className="bg-white border rounded-lg shadow-lg p-4 w-full max-w-md flex flex-col">
+            
+            <div className="flex flex-row justify-center align-center w-100  gap-3">
                 {/* Champ texte */}
-                {/* <input
+                <input
                     type="text"
                     placeholder="Écrire quelque chose..."
-                    className="rounded p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-300 mb-4"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                /> */}
+                    className="rounded p-2 shadow-sm focus:outline-none focus:outline-sky-500 focus:ring-2 focus:ring-gray-300 mb-4 w-full"
+                    value={inputValue.input}
+                    onChange={(e) => setInputValue({input : e.target.value})}
+                />
 
                 {/* Zone boutons alignés en bas à gauche */}
-                <div className="flex justify-between">
-                    {/* <button
-                        type="button"
-                        onClick={handleButtonClick}
-                        className="cursor-pointer p-1 border flex items-center justify-center w-10 h-10 rounded-full"
-                    >
-                        <img
-                            src={Plus}
-                            alt="Plus"
-                        />
-                    </button> */}
+                <div className="flex">
 
                     <button
                         type="button"
                         onClick={chatAI}
-                        className="cursor-pointer"
+                        className="cursor-pointer pb-3"
                     >
-                        <img
-                            src={Execute}
-                            alt="Execute"
-                            className="h-10 border p-1 rounded cursor-pointer hover:scale-105 transition-transform duration-200"
-                        />
+                        <Send />
                     </button>
                 </div>
 
