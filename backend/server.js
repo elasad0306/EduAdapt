@@ -14,7 +14,7 @@ Analyze the provided theme and automatically determine an appropriate difficulty
 
 Create a clear and concise educational summary of 150–200 words
 
-Generate 5 varied quiz questions (multiple choice, true/false, short open-ended) adapted to the difficulty level
+Generate 5 varied quiz questions (multiple choice) adapted to the difficulty level
 
 The questions must cover different aspects of the theme
 

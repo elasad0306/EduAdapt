@@ -26,7 +26,12 @@ function CenterInput() {
         theme : '',
         difficulty: '',
         resume: '',
-        questions : ''
+        questions : {
+            question : '',
+            type : '',
+            options : '',
+            response : ''
+        }
     })
 
     // const handleButtonClick = () => {
@@ -79,8 +84,17 @@ function CenterInput() {
                 setIaResponse({
                     theme : data.result.theme,
                     difficulty : data.result.difficulty,
-                    resume: data.result.resume
+                    resume: data.result.resume,
+                    questions : {
+                        question : data.result.questions.question,
+                        type: data.result.questions.type,
+                        options : data.result.questions.options,
+                        response : data.result.questions.response
+
+                    }
                 })
+
+                localStorage.setItem("responseIA", iaResponse)
 
                 setInputValue({
                     input: ''
@@ -112,6 +126,11 @@ function CenterInput() {
                 <h2><strong>Résumé : </strong></h2>
                 {iaResponse.resume}
                 <br/>
+                {/* <div>
+                    {
+                        iaResponse.questions.map()
+                    }
+                </div> */}
                 </div>
                 
             }
@@ -126,6 +145,7 @@ function CenterInput() {
                     value={inputValue.input}
                     onChange={(e) => setInputValue({input : e.target.value})}
                 />
+                
 
                 {/* Zone boutons alignés en bas à gauche */}
                 <div className="flex">

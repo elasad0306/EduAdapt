@@ -32,7 +32,7 @@ function Navbar() {
                     className="h-15 cursor-pointer transition-transform duration-200 hover:scale-110"
                 />
             </button>
-            {token === false  && <p>Chat</p>}
+            
             <div className="flex justify-end flex-1 min-w-0">
                 <button onClick={handleProfileClick} className="p-0 flex shrink-0">
                     <img
