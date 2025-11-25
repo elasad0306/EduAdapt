@@ -6,8 +6,6 @@ import Connexion from './pages/Connexion';
 import Chat from './pages/Chat';
 import Profile from './pages/Profile';
 import Modifprofile from './pages/Modifprofile';
-// import Publications from './pages/Publications';
-import Modifprofile from './pages/Modifprofile';
 
 function App() {
 
