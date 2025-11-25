@@ -181,6 +181,66 @@ router.get('/api/profile', async (req, res) => {
 
     } catch (error) {
         console.error('Erreur :', error);
+        return res.status(500).json({
+            success: false,
+            message: error.message || 'Erreur serveur'
+        });
+    }
+})
+router.put('/api/Modifprofile', async (req, res) => {
+    try {
+        const authHeader = req.headers.authorization;
+        if (!authHeader) {
+            return res.status(401).json({
+                success: false,
+                message: 'Token manquant'
+            });
+        }
+        const token = authHeader.startsWith('Bearer') ? authHeader.slice(7) : authHeader;
+        if (!token || token === 'null' || token === 'undefined') {
+            return res.status(401).json({
+                success: false,
+                message: 'Token invalide'
+            });
+        }
+        const decoded = jwt.verify(token, 'secret');
+        const user = await User.findByID(decoded.id);
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: 'Utilisateur non trouvé'
+            });
+        }
+        const { firstname, lastname, address, phonenumber, email, password } = req.body;
+        const updatedUser = await User.updateUser(decoded.id, {
+            firstname,
+            lastname,
+            address,
+            phonenumber,
+            email,
+            password
+        });
+        return res.status(200).json({
+            success: true,
+            message: 'Profil mis à jour avec succès',
+            data: {
+                user: {
+                    id: updatedUser.id,
+                    firstname: updatedUser.firstname,
+                    lastname: updatedUser.lastname,
+                    email: updatedUser.email,
+                    address: updatedUser.address || '',
+                    phonenumber: updatedUser.phonenumber || '',
+                    password: updatedUser.password || ''
+                }
+            }
+        });
+    } catch (error) {
+        console.error('Erreur mise à jour profil :', error);
+        res.status(500).json({
+            success: false,
+            message: error.message || "Erreur lors de la mise à jour du profil"
+        });
     }
 })
 module.exports = router

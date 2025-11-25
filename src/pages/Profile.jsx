@@ -76,7 +76,7 @@ function Profile(){
                     alt="Profile"
                     className="w-60 h-60 rounded-full object-cover border-4 border-white shadow-lg mt-6"
                     />
-                        <h2 className="text-xl font-semibold mt-4">Utilisateur Test</h2>
+                        <h2 className="text-xl font-semibold mt-4">{user.firstname} {user.lastname}</h2>
                     </div>
                     <div className="flex flex-col basis-2/3 ml-4 bg-white p-6 rounded-lg shadow-md">
                             <h1 className="text-2xl text-center mt-4">Profil Utilisateur</h1>
@@ -86,10 +86,9 @@ function Profile(){
                             <p> Email: {user.email}</p>
                             <p> Address: {user.address || 'Non renseigné'}</p>
                             <p> Contact: {user.phonenumber || 'Non renseigné'}</p>
-                            <p> Mot de passe: ********</p>
                         </div>
                         <div className="flex justify-end">
-                            <a href="/Modif">
+                            <a href="/Modifprofile">
                                 <Button NameButton="Modifier" style=" py-2 px-9 cursor-pointer transition duration-300 border border-blue-300 text-blue-300  rounded hover:bg-blue-300 hover:text-white"/>               
                             </a>
                         </div>

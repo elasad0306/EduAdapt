@@ -49,6 +49,53 @@ class User {
         return await bcrypt.compare(passwordEnter, hashedPassword)
     }
 
+    //Pour mettre à jour le profil utilisateur
+    static async updateUser(id, userData){
+        const {firstname, lastname, email, address, phonenumber, password} = userData
+
+        let updateFields = []
+        let updateValues = []
+
+        if(firstname !== undefined){
+            updateFields.push('firstname = ?')
+            updateValues.push(firstname)
+        }
+        if(lastname !== undefined){
+            updateFields.push('lastname = ?')
+            updateValues.push(lastname)
+        }
+        if(email !== undefined){
+            updateFields.push('email = ?')
+            updateValues.push(email)
+        }
+        if(address !== undefined){
+            updateFields.push('address = ?')
+            updateValues.push(address)
+        }
+        if(phonenumber !== undefined){
+            updateFields.push('phonenumber = ?')
+            updateValues.push(phonenumber)
+        }
+        if(password !== undefined && password !== null){
+            const salt = await bcrypt.genSalt(12)
+            const hashedPassword = await bcrypt.hash(password, salt)
+            updateFields.push('password = ?')
+            updateValues.push(hashedPassword)
+        }
+
+        if(updateFields.length === 0){
+            return await User.findByID(id)
+        }
+
+        updateValues.push(id)
+
+        const query = `UPDATE users SET ${updateFields.join(', ')} WHERE id = ?`
+
+        await connection.execute(query, updateValues)
+
+        return await User.findByID(id)
+    }
+
     
 }
 

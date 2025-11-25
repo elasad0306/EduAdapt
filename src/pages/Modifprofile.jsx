@@ -79,7 +79,7 @@ function Modifprofile(){
                 password: form.password || undefined
 			}
 
-			const res = await fetch(`${API_URL}/profile`, {
+			const res = await fetch(`${API_URL}/Modifprofile`, {
 				method: 'PUT',
 				headers: {
 					'Authorization': `Bearer ${token}`,
