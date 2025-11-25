@@ -158,7 +158,7 @@ function Modifprofile(){
                     />
                     <div className="flex flex-row gap-20">
                     <div className="flex mt-5">
-                        <a href="/Profile" className="px-6 flex-1 py-2 text-center border border-gray-300 rounded-lg hover:bg-red-700 hover:tet-white transition">Annuler</a>
+                        <a href="/Profile" className="px-6 flex-1 py-2 text-center border border-gray-300 rounded-lg hover:bg-red-700 hover:text-white transition">Annuler</a>
                     </div>
 					<div className="flex mt-5">
 						<Button NameButton={loading ? 'Enregistrement...' : 'Enregistrer'} style="py-2 px-6 cursor-pointer transition duration-300 border border-blue-700 text-blue-700  rounded hover:bg-blue-700 hover:text-white"/>
