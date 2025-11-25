@@ -156,7 +156,7 @@ function Modifprofile(){
                         onChange={handleChange}
                         typeInput="password"
                     />
-                    <div className="flex flex-row gap-20">
+                    <div className="flex flex-row gap-40">
                     <div className="flex mt-5">
                         <a href="/Profile" className="px-6 flex-1 py-2 text-center border border-gray-300 rounded-lg hover:bg-red-700 hover:text-white transition">Annuler</a>
                     </div>
