@@ -19,7 +19,7 @@ function Navbar() {
 
     const handleChatClick = (e) => {
         if (e && typeof e.preventDefault === 'function') e.preventDefault();
-        navigate('/Chat');
+        navigate('/Home');
     };
 
     return (
