@@ -212,7 +212,12 @@ router.put('/api/Modifprofile', async (req, res) => {
             });
         }
         const { firstname, lastname, address, phonenumber, email, password } = req.body;
-        
+        if (password.length < 8) {
+            return res.status(400).json({
+                success: false,
+                message: 'Le mot de passe doit contenir au moins 8 caractères'
+            });
+        }
         const updatedUser = await User.updateUser(decoded.id, {
             firstname,
             lastname,
