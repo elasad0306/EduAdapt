@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from 'react';
+import {useEffect, useState } from 'react';
 import '../App.css'
 import Button from '../Components/Buttons/Button';
 import Footer from '../components/Footer';
@@ -69,81 +69,70 @@ function Profile(){
     }
     return(
         <>
-        <Navbar />
-                <div
-                    className="flex flex-row p-6 rounded-lg shadow-lg bg-cover bg-center bg-sky-100"                >
-                    <div className="flex flex-col items-center basis-1/3">
-                        <img
-                    src={profileImg}
-                    alt="Profile"
-                    className="w-60 h-60 rounded-full object-cover border-4 border-white shadow-lg mt-6"
-                    />
-                        <h2 className="text-xl font-semibold mt-4">{user.firstname} {user.lastname}</h2>  
-                        <Button onClick={deconnexion} NameButton="Se déconnecter" style=" mt-4 py-2 px-9 cursor-pointer transition duration-300 border border-red-300 text-red-300  rounded hover:bg-red-300 hover:text-white"/>
-                    </div>
-                    <div className="flex flex-col basis-2/3 ml-4 bg-white p-6 rounded-lg shadow-md">
-                            <h1 className="text-2xl text-center mt-4">Profil Utilisateur</h1>
-                        <div className="mt-4 mb-6 space-y-3 text-xl">
-                            <p> Nom: {user.lastname}</p>
-                            <p> Prénom: {user.firstname}</p>
-                            <p> Email: {user.email}</p>
-                            <p> Address: {user.address || 'Non renseigné'}</p>
-                            <p> Contact: {user.phonenumber || 'Non renseigné'}</p>
+            <Navbar />
+            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center min-h-screen sm:p-6 lg:p-20 bg-sky-100">
+                <div className="w-full max-w-4xl bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div className="flex flex-col lg:flex-row">
+
+                        <div className="flex flex-col items-center p-6 lg:p-8 bg-gradient-to-b from-blue-50 to-sky-100 lg:w-1/3">
+                            <img
+                                src={profileImg}
+                                alt="Profile"
+                                className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full object-cover border-4 border-white shadow-lg"
+                            />
+                            <h2 className="text-xl sm:text-2xl font-semibold mt-4 text-center text-gray-800">
+                                {user.firstname} {user.lastname}
+                            </h2>
+                            <div className="mt-4 w-full max-w-xs">
+                                <Button
+                                    onClick={deconnexion}
+                                    NameButton="Se déconnecter"
+                                    style="w-full py-2 px-4 cursor-pointer transition duration-300 border border-red-400 text-red-400 rounded-lg hover:bg-red-400 hover:text-white font-medium"
+                                />
+                            </div>
                         </div>
-                        <div className="flex justify-end">
-                            <a href="/Modifprofile">
-                                <Button NameButton="Modifier" style=" py-2 px-9 cursor-pointer transition duration-300 border border-blue-300 text-blue-300  rounded hover:bg-blue-300 hover:text-white"/>               
-                            </a>
+
+                        <div className="flex flex-col p-6 lg:p-8 lg:w-2/3">
+                            <h1 className="font-bold text-2xl sm:text-3xl text-center lg:text-left text-gray-800 mb-6">
+                                Informations de profil
+                            </h1>
+
+                            <div className="space-y-4 sm:space-y-5 mb-8">
+                                <div className="flex flex-col sm:flex-row sm:items-center">
+                                    <span className="text-gray-600 font-medium min-w-24 sm:min-w-32">Nom:</span>
+                                    <span className="text-gray-800 font-semibold sm:ml-4">{user.lastname}</span>
+                                </div>
+                                <div className="flex flex-col sm:flex-row sm:items-center">
+                                    <span className="text-gray-600 font-medium min-w-24 sm:min-w-32">Prénom:</span>
+                                    <span className="text-gray-800 font-semibold sm:ml-4">{user.firstname}</span>
+                                </div>
+                                <div className="flex flex-col sm:flex-row sm:items-start">
+                                    <span className="text-gray-600 font-medium min-w-24 sm:min-w-32">Email:</span>
+                                    <span className="text-gray-800 font-semibold sm:ml-4 break-words">{user.email}</span>
+                                </div>
+                                <div className="flex flex-col sm:flex-row sm:items-center">
+                                    <span className="text-gray-600 font-medium min-w-24 sm:min-w-32">Adresse:</span>
+                                    <span className="text-gray-800 font-semibold sm:ml-4">{user.address || 'Non renseigné'}</span>
+                                </div>
+                                <div className="flex flex-col sm:flex-row sm:items-center">
+                                    <span className="text-gray-600 font-medium min-w-24 sm:min-w-32">Contact:</span>
+                                    <span className="text-gray-800 font-semibold sm:ml-4">{user.phonenumber || 'Non renseigné'}</span>
+                                </div>
+                            </div>
+
+                            <div className="flex justify-center lg:justify-end mt-4">
+                                <a href="/Modifprofile" className="w-full sm:w-auto">
+                                    <Button
+                                        NameButton="Modifier le profil"
+                                        style="w-full py-3 px-8 cursor-pointer transition duration-300 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white font-medium"
+                                    />
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col p-6 rounded-lg shadow-lg bg-cover bg-center mt-6 mb-6">
-                    <h2 className="text-center mt-6 text-2xl mb-6"> Historique D'activités</h2>
-                    <table className="border-separate border border-gray-400 mt-4 mb-6">
-                        <thead>
-                            <tr>
-                            <th className="border border-gray-300 px-6 py-3 ">Cours</th>
-                            <th className="border border-gray-300 px-6 py-3 ">Impression</th>
-                            <th className="border border-gray-300 px-6 py-3 ">Score</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td className="border border-gray-300 px-6 py-3 ">Anglais</td>
-                            <td className="border border-gray-300 px-6 py-3 ">Moyen</td>
-                            <td className="border border-gray-300 px-6 py-3 ">10</td>
-                            </tr>
-                            <tr>
-                            <td className="border border-gray-300 px-6 py-3 ">Mathématiques</td>
-                            <td className="border border-gray-300 px-6 py-3 ">Assez Bien</td>
-                            <td className="border border-gray-300 px-6 py-3 ">15</td>
-                            </tr>
-                            <tr>
-                            <td className="border border-gray-300 px-6 py-3 ">Informatique</td>
-                            <td className="border border-gray-300 px-6 py-3 ">Excellent !</td>
-                            <td className="border border-gray-300 px-6 py-3 ">17</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div>
-                    <h2 className="text-center mt-6 text-2xl mb-6">Demander de l'aide</h2>
-                    <div className="text-center px-60 py-6 bg-cover bg-center bg-sky-100 ">
-                            <p>
-                                Besoin d'un coup de pouce ? Envoyez votre demande et entrez en contact
-                                avec des étudiant·es ou des tuteurs disponibles, localement ou à distance.
-                                <br />
-                                Organisez des sessions d'étude, partagez des ressources et progressez
-                                ensemble — la communauté EduAdapt vous accompagne à chaque étape.
-                            </p>
-                    </div>
-                </div>
-                <div className="flex justify-center mt-4 mb-10">
-                    <a href="/Aide">
-                        <Button NameButton="Demander de l'aide" style="py-2 px-9 cursor-pointer transition duration-300 border border-yellow-300 text-yellow-300  rounded hover:bg-yellow-300 hover:text-white"/>
-                    </a>
-                </div>
-        <Footer />
+            </div>
+            <Footer />
         </>
     )
 }
