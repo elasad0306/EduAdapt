@@ -1,5 +1,5 @@
-import { Twitter } from 'lucide-react';
-import { Facebook } from 'lucide-react';
+import { Github } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import { Linkedin } from 'lucide-react';
 function Footer() {
 	return (
@@ -24,9 +24,9 @@ function Footer() {
 					<p className="mt-2 text-lg">support@eduadapt.example</p>
 					<p className="mt-1 text-lg">+33 1 23 45 67 89</p>
 					<div className="mt-3 flex space-x-3">
-						<a aria-label="Twitter" className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 p-2" href="#"><Twitter /></a>
-						<a aria-label="Facebook" className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-700 p-2" href="#"><Facebook /></a>
-						<a aria-label="LinkedIn" className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-500 p-2" href="#"> <Linkedin /></a>
+						<a aria-label="Github" className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 p-2" href="https://github.com/Spartixx"><Github /></a>
+						<a aria-label="Instagram" className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-700 p-2" href="https://www.instagram.com/nicolas_macrez?igsh=MWhqbmp2Y3loYWxzNQ=="><Instagram /></a>
+						<a aria-label="LinkedIn" className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-500 p-2" href="https://www.linkedin.com/in/nicolas-macrez-68a63a349/"> <Linkedin /></a>
 					</div>
 				</div>
 			</div>
