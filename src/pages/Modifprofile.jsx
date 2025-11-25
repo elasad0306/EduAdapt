@@ -15,6 +15,8 @@ function Modifprofile(){
         password: ''
 	})
 	const [loading, setLoading] = useState(false)
+	const [error, setError] = useState('')
+	const [success, setSuccess] = useState(false)
 
 	const parseResponseSafely = async (res) => {
 		const text = await res.text()
@@ -28,6 +30,7 @@ function Modifprofile(){
 
 	const getProfile = async () =>{
 		try{
+			setError('')
 			const token = localStorage.getItem('token')
 			if(!token) throw new Error('Utilisateur non connecté')
 
@@ -52,6 +55,7 @@ function Modifprofile(){
 			})
 		}catch(error){
 			console.error('Erreur profil : ', error)
+			setError(error.message || 'Erreur lors du chargement du profil')
 		}
 	}
 
@@ -66,6 +70,8 @@ function Modifprofile(){
 	const handleSubmit = async (e) =>{
 		e.preventDefault()
 		setLoading(true)
+		setError('')
+		setSuccess(false)
 		try{
 			const token = localStorage.getItem('token')
 			if(!token) throw new Error('Utilisateur non connecté')
@@ -93,11 +99,13 @@ function Modifprofile(){
 				throw new Error(data && data.message ? data.message : 'Erreur lors de la sauvegarde')
 			}
 
-			alert('Profil mis à jour avec succès')
-			window.location.href = '/Profile'
+			setSuccess(true)
+			setTimeout(() => {
+				window.location.href = '/Profile'
+			}, 1500)
 		}catch(error){
 			console.error('Erreur lors de la mise à jour :', error)
-			alert(error.message || 'Erreur lors de la mise à jour')
+			setError(error.message || 'Erreur lors de la mise à jour')
 		}finally{ setLoading(false) }
 	}
 
@@ -151,11 +159,22 @@ function Modifprofile(){
                     <InputWithLabel 
                         NameLabel="Mot de passe*" 
                         idInput="password" 
+						placeholder="Laisser vide pour conserver le mot de passe actuel"
                         value={form.password}
                         style="border w-100 rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2 input-shadow mb-4"
                         onChange={handleChange}
                         typeInput="password"
                     />
+                    {error && (
+                        <div className="w-full mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                            {error}
+                        </div>
+                    )}
+                    {success && (
+                        <div className="w-full mb-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded">
+                            Profil mis à jour avec succès !
+                        </div>
+                    )}
                     <div className="flex flex-row gap-20">
                     <div className="flex mt-5">
                         <a href="/Profile" className="py-2 px-6 flex-1 py-2 text-center border border-gray-300 rounded-lg hover:bg-gray-50 transition">Annuler</a>
