@@ -1,6 +1,6 @@
 import LogoWhite from '../assets/picture/logoEduAdaptWhiteVersion.png';
 import Profile from '../assets/picture/profile.jpg';
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
@@ -12,7 +12,6 @@ function Navbar() {
         if (!token) {
             navigate('/Connexion');
         } else {
-            setIsConnected(true)
             navigate('/Profile');
 
         }
