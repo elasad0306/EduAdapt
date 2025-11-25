@@ -17,7 +17,7 @@ function Footer() {
 		};
 
 	return (
-		<footer className="mt-12 bg-gray-900 text-gray-200">
+		<footer className=" bg-gray-900 text-gray-200">
 			<div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
 				<div>
 					<h3 className="text-2xl font-semibold text-white">EduAdapt</h3>
