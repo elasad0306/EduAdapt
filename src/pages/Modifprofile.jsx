@@ -159,7 +159,7 @@ function Modifprofile(){
                     <InputWithLabel 
                         NameLabel="Mot de passe*" 
                         idInput="password" 
-						placeholder="Laisser vide pour conserver le mot de passe actuel"
+						placeholder="Retapez votre mot de passe avec au moins 8 caractères"
                         value={form.password}
                         style="border w-100 rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2 input-shadow mb-4"
                         onChange={handleChange}
