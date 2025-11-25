@@ -122,7 +122,7 @@ function CenterInput() {
                 <input
                     type="text"
                     placeholder="Écrire quelque chose..."
-                    className="rounded p-2 shadow-sm focus:outline-none focus:outline-sky-500 focus:ring-2 focus:ring-gray-300 mb-4 w-full"
+                    className="rounded p-2 shadow-sm ctive:border-sky-500 focus:outline-none focus:outline-sky-500 focus:ring-2 focus:ring-gray-300 mb-4 w-full"
                     value={inputValue.input}
                     onChange={(e) => setInputValue({input : e.target.value})}
                 />

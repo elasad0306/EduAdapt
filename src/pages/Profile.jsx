@@ -108,7 +108,7 @@ function Profile(){
                                 </div>
                                 <div className="flex flex-col sm:flex-row sm:items-start">
                                     <span className="text-gray-600 font-medium min-w-24 sm:min-w-32">Email:</span>
-                                    <span className="text-gray-800 font-semibold sm:ml-4 break-words">{user.email}</span>
+                                    <span className="text-gray-800 font-semibold sm:ml-4 wrap-break-word">{user.email}</span>
                                 </div>
                                 <div className="flex flex-col sm:flex-row sm:items-center">
                                     <span className="text-gray-600 font-medium min-w-24 sm:min-w-32">Adresse:</span>
