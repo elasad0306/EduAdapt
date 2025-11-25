@@ -1,7 +1,21 @@
 import { Twitter } from 'lucide-react';
 import { Facebook } from 'lucide-react';
 import { Linkedin } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 function Footer() {
+	    const navigate = useNavigate();
+
+		const handleLinkClick = (e) => {
+			if (e && typeof e.preventDefault === 'function') e.preventDefault();
+			const token = localStorage.getItem('token');
+			console.log('Token vérifié :', token);
+			if (!token) {
+				navigate('/Connexion');
+			} else {
+				navigate('/' + e.target.getAttribute('href').substring(1));
+			}
+		};
+
 	return (
 		<footer className="mt-12 bg-gray-900 text-gray-200">
 			<div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -13,9 +27,9 @@ function Footer() {
 				<div>
 					<h4 className="font-semibold text-white">Ressources</h4>
 					<ul className="mt-2 text-lg space-y-1">
-						<li><a className="hover:underline" href="/">Accueil</a></li>
-						<li><a className="hover:underline" href="/Chat">Chat</a></li>
-                        <li><a className="hover:underline" href="/Profile">Profil</a></li>
+						<li><a onClick={handleLinkClick} className="hover:underline" href="/">Accueil</a></li>
+						<li><a onClick={handleLinkClick} className="hover:underline" href="/Chat">Chat</a></li>
+						<li><a onClick={handleLinkClick} className="hover:underline" href="/Profile">Profil</a></li>
 					</ul>
 				</div>
 

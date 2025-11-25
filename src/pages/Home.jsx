@@ -13,7 +13,6 @@ import Footer from '../components/Footer';
 
 function Home() {
     const navigate = useNavigate();
-
     const stepsData = [
         {
             stepNumber: 1,
@@ -87,4 +86,5 @@ function Home() {
         </div>
     );
 }
+
 export default Home;
