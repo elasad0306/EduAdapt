@@ -5,7 +5,7 @@ import Execute from '../assets/picture/up-arrow.png'
 import { useState, useRef } from 'react'
 
 import Navbar from '../Components/Navbar'
-import { LoaderPinwheel, Send } from 'lucide-react';
+import { LoaderPinwheel, Send, Bug } from 'lucide-react';
 
 
 const API_URL = "http://localhost:8000/api"
@@ -17,7 +17,7 @@ function CenterInput() {
     });
     const [fileName, setFileName] = useState("");
     const [data, setData] = useState({
-        success: false,
+        success: null,
         message: ''
     })
 
@@ -56,7 +56,7 @@ function CenterInput() {
         try{
             if(inputValue.input.trim() === ""){
                 return (
-                    alert("Veuillez votre demande 😊"),
+                    alert("Veuillez retapez votre demande"),
                     window.location.href = "/Chat"
             )
             }
@@ -102,6 +102,7 @@ function CenterInput() {
             }
             
         }catch(error){
+            setLoader(false)
             console.error(error.message ||  'Erreur ');
             throw error
             
@@ -114,13 +115,13 @@ function CenterInput() {
         <div className="flex flex-col items-center justify-center h-full gap-4 bg-sky-100">
             {/* Carte contenant champ + boutons */}
             <div className="w-full max-w-md">
-                <h1 className="mb-15 text-lg w-max text-center font-bold text-gray-800">
+                <h1 className="text-lg w-max text-center font-bold text-gray-800">
                     Hello, je suis là pour t'aider à réviser tes cours et à mieux les assimiler.
                 </h1>
             </div>
             
             {loader && <LoaderPinwheel className='mx-auto animate-spin text-blue-500' size={64}/>}
-            {data.success && loader && (<p>Impossible de récupérer les données</p>)}
+            {data.success === false &&  <Bug />}
             {data.success && <div className='flex flex-col text-left w-100'>
                 <h2><strong>Thème : </strong>{iaResponse.theme}</h2>
                 <h2><strong>Résumé : </strong></h2>
@@ -141,7 +142,7 @@ function CenterInput() {
                 <input
                     type="text"
                     placeholder="Écrire quelque chose..."
-                    className="rounded p-2 shadow-sm active:border-sky-500 focus:outline-none focus:outline-sky-500 focus:ring-2 focus:ring-sky-300 mb-4 w-full"
+                    className="rounded p-2 shadow-sm active:border-sky-500 focus:outline-none focus:outline-sky-500 focus:ring-2 focus:ring-blue-300 mb-4 w-full"
                     value={inputValue.input}
                     onChange={(e) => setInputValue({input : e.target.value})}
                 />
