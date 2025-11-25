@@ -13,11 +13,8 @@ app.post('/api/register', require('./routes/authentification'))
 //Connexion de l'utilisateur
 app.post('/api/login', require('./routes/authentification'))
 
-
-
-
-
 app.get('/api/profile', require('./routes/authentification'))
+app.put('/api/Modifprofile', require('./routes/authentification'))
 app.listen(8000, ()=>{
     console.log("Listening");
     

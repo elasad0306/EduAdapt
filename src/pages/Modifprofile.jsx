@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import Navbar from '../Components/Navbar'
-import Footer from '../Components/Footer'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import InputWithLabel from '../components/InputWithLabel/InputWithLabel'
 import Button from '../Components/Buttons/Button'
 
@@ -79,7 +79,7 @@ function Modifprofile(){
                 password: form.password || undefined
 			}
 
-			const res = await fetch(`${API_URL}/profile`, {
+			const res = await fetch(`${API_URL}/Modifprofile`, {
 				method: 'PUT',
 				headers: {
 					'Authorization': `Bearer ${token}`,
