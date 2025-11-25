@@ -9,10 +9,7 @@ const StepCard = ({
                       color = 'blue'
                   }) => {
     const colorClasses = {
-        blue: { bg: 'bg-blue-50' },
-        green: { bg: 'bg-green-50' },
-        yellow: { bg: 'bg-yellow-50' },
-        purple: { bg: 'bg-purple-50' }
+        blue: { bg: 'bg-blue-50' }
     };
 
     const { bg } = colorClasses[color];

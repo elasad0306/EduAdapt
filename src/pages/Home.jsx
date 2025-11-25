@@ -29,7 +29,7 @@ function Home() {
             description: "Discutez avec notre intelligence artificielle, posez vos questions et recevez de l'aide instantanée.",
             image: Picture2,
             imageAlt: "Chat IA",
-            color: "green"
+            color: "blue"
         },
         {
             stepNumber: 3,
@@ -37,7 +37,7 @@ function Home() {
             description: "Effectuez des quizzs ou exercices pour vous entrainer",
             image: Picture3,
             imageAlt: "Notifications",
-            color: "yellow"
+            color: "blue"
         },
         {
             stepNumber: 4,
@@ -45,7 +45,7 @@ function Home() {
             description: "Accédez à votre profil, modifiez vos informations et voyez vos résultats.",
             image: Picture4,
             imageAlt: "Profil étudiant",
-            color: "purple"
+            color: "blue"
         }
     ];
 
