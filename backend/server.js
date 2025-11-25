@@ -5,7 +5,7 @@ const User = require('./models/User')
 const app = express()
 const {GoogleGenAI} = require('@google/genai')
 
-const ai = new GoogleGenAI({apiKey: "AIzaSyB8-5wjBbteKeyvW8U9wGD-YsP35FU1aAw"})
+const ai = new GoogleGenAI({apiKey: "AIzaSyDftigoggkmBVBocQzoyWa4ZlNB12WG1X8"})
 const promptInstruction = `As an educational assistant, generate structured content on the following theme: “[THEME]”.
 
 Specific instructions:

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 import HeroSection from '../components/Home/HeroSection';
-import ZPatternSteps from '../components/Home/ZPatternSteps';
+import PatternSteps from '../components/Home/PatternSteps';
 import Header from '../components/Home/Header';
 import background_picture from '../assets/picture/doing-homework-together.jpg';
 import Picture1 from '../assets/picture/member-log-membership-username-password-concept.jpg';
@@ -12,6 +12,8 @@ import Navbar from '../Components/Navbar';
 import Footer from '../components/Footer';
 
 function Home() {
+
+
     const navigate = useNavigate();
     const stepsData = [
         {
@@ -52,7 +54,7 @@ function Home() {
 
 
         <div className="w-full h-full overflow-auto">
-            {/* Section Hero - SANS le bouton */}
+            
             <Navbar/>
 
             <HeroSection
@@ -61,11 +63,11 @@ function Home() {
                 // On retire le bouton de la HeroSection
             />
 
-            {/* Header */}
+            
             <Header />
 
-            {/* Section étapes en Z */}
-            <ZPatternSteps stepsData={stepsData} />
+            
+            <PatternSteps stepsData={stepsData} />
 
             <div className="w-full bg-linear-to-br bg-sky-100 py-16 sm:py-20">
                 <div className="max-w-4xl mx-auto px-4 text-center">

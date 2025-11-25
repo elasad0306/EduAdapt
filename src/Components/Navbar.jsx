@@ -15,7 +15,7 @@ function Navbar() {
         } else {
             navigate('/Profile');
         }
-        return token
+        
     };
 
     const handleHomeClick = (e) => {
