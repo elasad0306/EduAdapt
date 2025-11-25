@@ -110,7 +110,7 @@ function Registration() {
                 <InputWithLabel 
                 NameLabel="Adresse" 
                 idInput="address"
-                value={userData.address} 
+                value={userData.address}
                 style="border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2 input-shadow"
                 onChange={handleChange}
                 typeInput="text"
@@ -119,7 +119,7 @@ function Registration() {
                 <InputWithLabel 
                 NameLabel="Téléphone" 
                 idInput="phonenumber"
-                value={userData.phonenumber} 
+                value={userData.phonenumber}
                 style="border w-full rounded active:border-sky-500 focus:outline-1 focus:outline-sky-500 p-2 input-shadow"
                 onChange={handleChange}
                 typeInput="text"

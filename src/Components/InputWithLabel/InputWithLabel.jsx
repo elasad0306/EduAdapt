@@ -1,6 +1,6 @@
 
 
-function InputWithLabel({NameLabel,idInput, typeInput, value, onChange, style}){
+function InputWithLabel({NameLabel,idInput, typeInput, value, placeholder, onChange, style}){
 
     return (
         <div className='flex flex-col '>
@@ -12,6 +12,7 @@ function InputWithLabel({NameLabel,idInput, typeInput, value, onChange, style}){
             value={value}
             onChange={onChange}
             className={style}
+            placeholder={placeholder}
             />
         </div>
     )

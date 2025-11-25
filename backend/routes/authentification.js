@@ -212,6 +212,7 @@ router.put('/api/Modifprofile', async (req, res) => {
             });
         }
         const { firstname, lastname, address, phonenumber, email, password } = req.body;
+        
         const updatedUser = await User.updateUser(decoded.id, {
             firstname,
             lastname,

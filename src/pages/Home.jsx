@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import HeroSection from '../components/Home/HeroSection';
 import PatternSteps from '../components/Home/PatternSteps';
@@ -10,10 +10,25 @@ import Picture3 from '../assets/picture/personalisedexercise.jpg'
 import Picture4 from '../assets/picture/profilepicture.jpg'
 import Navbar from '../Components/Navbar';
 import Footer from '../components/Footer';
+import Button from '../Components/Buttons/Button';
 
 function Home() {
 
-
+    const [isConnected, setIsConnected] = useState(false)
+    const [pathPage, setPathPage] = useState('')
+    const checkIsConnected = ()=>{
+        const token = localStorage.getItem('token')
+        if(token){
+            setIsConnected(true)
+            setPathPage('/Chat')
+        }else{
+            setIsConnected(false)
+            setPathPage('/Connexion')
+        }
+    }
+    useEffect(()=>{
+        checkIsConnected()
+    }, [])
     const navigate = useNavigate();
     const stepsData = [
         {
@@ -77,11 +92,11 @@ function Home() {
                     <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                         Rejoignez des milliers d'étudiants qui ont déjà transformé leur façon d'apprendre avec EduAdapt
                     </p>
-                    <button
-                        className="cursor-pointer font-bold text-white text-xl bg-linear-to-r from-blue-500 to-blue-600 px-10 py-4 rounded-2xl hover:from-blue-600 hover:to-blue-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                        onClick={() => navigate("/Connexion")}>
-                        Commencer maintenant
-                    </button>
+                    <Button 
+                    NameButton="Commencer maintenant" 
+                    onClick={() => navigate(pathPage)}
+                    style="cursor-pointer font-bold text-white text-xl bg-linear-to-r from-blue-500 to-blue-600 px-10 py-4 rounded-2xl hover:from-blue-600 hover:to-blue-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"/
+                    >
                 </div>
             </div>
             <Footer />

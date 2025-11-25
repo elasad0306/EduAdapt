@@ -1,11 +1,10 @@
 import LogoWhite from '../assets/picture/logoEduAdaptWhiteVersion.png';
 import Profile from '../assets/picture/profile.jpg';
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
     const navigate = useNavigate();
-
     const handleProfileClick = (e) => {
         if (e && typeof e.preventDefault === 'function') ;
         const token = localStorage.getItem('token');
@@ -13,7 +12,9 @@ function Navbar() {
         if (!token) {
             navigate('/Connexion');
         } else {
+            setIsConnected(true)
             navigate('/Profile');
+
         }
         
     };
