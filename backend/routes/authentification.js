@@ -212,20 +212,34 @@ router.put('/api/Modifprofile', async (req, res) => {
             });
         }
         const { firstname, lastname, address, phonenumber, email, password } = req.body;
-        if (password.length < 8) {
-            return res.status(400).json({
-                success: false,
-                message: 'Le mot de passe doit contenir au moins 8 caractères'
-            });
-        }
-        const updatedUser = await User.updateUser(decoded.id, {
+
+        // Prépare les champs à mettre à jour; ne pas inclure le mot de passe si l'utilisateur ne l'a pas fourni
+        const updates = {
             firstname,
             lastname,
             address,
             phonenumber,
-            email,
-            password
-        });
+            email
+        };
+
+        // Si un mot de passe est fourni, valider et l'ajouter aux champs à mettre à jour
+        if (password !== undefined) {
+            if (password === '') {
+                return res.status(400).json({
+                    success: false,
+                    message: 'Le mot de passe ne peut pas être vide'
+                });
+            }
+            if (typeof password !== 'string' || password.length < 8) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'Le mot de passe doit contenir au moins 8 caractères'
+                });
+            }
+            updates.password = password;
+        }
+
+        const updatedUser = await User.updateUser(decoded.id, updates);
         return res.status(200).json({
             success: true,
             message: 'Profil mis à jour avec succès',
