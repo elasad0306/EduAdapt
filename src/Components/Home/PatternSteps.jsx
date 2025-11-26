@@ -1,7 +1,7 @@
 import React from 'react';
 import StepCard from './StepCard';
 
-const ZPatternSteps = ({ stepsData }) => {
+const PatternSteps = ({ stepsData }) => {
     return (
         <div className="w-full px-4 sm:px-8 lg:px-12 py-12 sm:py-16 bg-gray-50">
             <div className="text-center mb-12 sm:mb-16">
@@ -32,4 +32,4 @@ const ZPatternSteps = ({ stepsData }) => {
     );
 };
 
-export default ZPatternSteps;
+export default PatternSteps;

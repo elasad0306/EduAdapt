@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import HeroSection from '../components/Home/HeroSection';
-import ZPatternSteps from '../components/Home/ZPatternSteps';
+import PatternSteps from '../components/Home/PatternSteps';
 import Header from '../components/Home/Header';
 import background_picture from '../assets/picture/doing-homework-together.jpg';
 import Picture1 from '../assets/picture/member-log-membership-username-password-concept.jpg';
@@ -10,8 +10,25 @@ import Picture3 from '../assets/picture/personalisedexercise.jpg'
 import Picture4 from '../assets/picture/profilepicture.jpg'
 import Navbar from '../Components/Navbar';
 import Footer from '../components/Footer';
+import Button from '../Components/Buttons/Button';
 
 function Home() {
+
+    const [isConnected, setIsConnected] = useState(false)
+    const [pathPage, setPathPage] = useState('')
+    const checkIsConnected = ()=>{
+        const token = localStorage.getItem('token')
+        if(token){
+            setIsConnected(true)
+            setPathPage('/Chat')
+        }else{
+            setIsConnected(false)
+            setPathPage('/Connexion')
+        }
+    }
+    useEffect(()=>{
+        checkIsConnected()
+    }, [])
     const navigate = useNavigate();
     const stepsData = [
         {
@@ -52,7 +69,7 @@ function Home() {
 
 
         <div className="w-full h-full overflow-auto">
-            {/* Section Hero - SANS le bouton */}
+            
             <Navbar/>
 
             <HeroSection
@@ -61,11 +78,11 @@ function Home() {
                 // On retire le bouton de la HeroSection
             />
 
-            {/* Header */}
+            
             <Header />
 
-            {/* Section étapes en Z */}
-            <ZPatternSteps stepsData={stepsData} />
+            
+            <PatternSteps stepsData={stepsData} />
 
             <div className="w-full bg-linear-to-br bg-sky-100 py-16 sm:py-20">
                 <div className="max-w-4xl mx-auto px-4 text-center">
@@ -75,11 +92,11 @@ function Home() {
                     <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                         Rejoignez des milliers d'étudiants qui ont déjà transformé leur façon d'apprendre avec EduAdapt
                     </p>
-                    <button
-                        className="cursor-pointer font-bold text-white text-xl bg-linear-to-r from-blue-500 to-blue-600 px-10 py-4 rounded-2xl hover:from-blue-600 hover:to-blue-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                        onClick={() => navigate("/Connexion")}>
-                        Commencer maintenant
-                    </button>
+                    <Button 
+                    NameButton="Commencer maintenant" 
+                    onClick={() => navigate(pathPage)}
+                    style="cursor-pointer font-bold text-white text-xl bg-linear-to-r from-blue-500 to-blue-600 px-10 py-4 rounded-2xl hover:from-blue-600 hover:to-blue-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"/
+                    >
                 </div>
             </div>
             <Footer />

@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
     const navigate = useNavigate();
-
     const handleProfileClick = (e) => {
         if (e && typeof e.preventDefault === 'function') ;
         const token = localStorage.getItem('token');
@@ -14,8 +13,9 @@ function Navbar() {
             navigate('/Connexion');
         } else {
             navigate('/Profile');
+
         }
-        return token
+        
     };
 
     const handleHomeClick = (e) => {
