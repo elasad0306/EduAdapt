@@ -3,7 +3,9 @@
 ## 🎯 À propos : 
 
 EduAdapt est une application web qui permet aux étudiants de générer des résumés de cours, des flashcards et des quiz à partir de n'importe quel contenu éducatif. 
-
+## 👥 Equipe : 
+- **[Cédric Richard BINTCHA PIAME](https://github.com/arcanoecole-It1)**
+- **[Alexis DELCROIX](https://github.com/Alexis-ecole)**
 ## 📂 Structure du projet : 
 ```bash
 📂EduAdapt/
@@ -63,13 +65,12 @@ EduAdapt est une application web qui permet aux étudiants de générer des rés
  - **[Heidi](https://www.heidisql.com/)**
 
 ## Etape 1 : 
-```bash 
-Clonez le projet : 
 ```bash
+#Clonez le projet :
 git clone https://github.com/elasad0306/EduAdapt.git
-````
-## Etape 2 : 
-Installation des dépendances : 
+```
+
+## Etape 2 : Installation des dépendances
 ```bash
 #Pour installer les dépendances du frontend : 
 #Se déplacer dans le dossier ./backend
@@ -85,4 +86,13 @@ cd ./backend
 #Lancer la commande suivant : 
 npm install
 ```
+## Etape 3 :  Lancer l'application : 
+```bash
+#Lancer le frontend : être dans le dossier racine et lancer la commande : 
+npm start
 
+#Lancer le backend : être dans le dossier backend
+cd ./backend
+
+npm start 
+```
