@@ -1,40 +1,98 @@
-# EduAdapt
-## Projet d'école
-## Sujet : 
-## 🎯 Problématique  
-Application web qui transforme n'importe quel contenu éducatif en expériences d'apprentissage interactives adaptées au niveau de chaque étudiant, générant automatiquement **quiz**, **flashcards** et **résumés**.
+# EduAdapt (Projet d'école)
 
----
+## 🎯 À propos : 
 
-## 🛠️ Stack technique recommandée
-- Interface **React** avec composants d'apprentissage réutilisables  
-- Intégration d'**APIs d'IA** (OpenAI, Gemini) pour la génération de contenu  
-- Système de progression avec **localStorage** et analytics  
-- **Gamification** : badges, récompenses, classements  
-- Algorithmes adaptatifs pour la **personnalisation du parcours**
+EduAdapt est une application web qui permet aux étudiants de générer des résumés de cours, des flashcards et des quiz à partir de n'importe quel contenu éducatif. 
+## 👥 Equipe : 
+- **[Cédric Richard BINTCHA PIAME](https://github.com/arcanoecole-It1)**
+- **[Alexis DELCROIX](https://github.com/Alexis-ecole)**
+## 📂 Structure du projet : 
+```bash
+📂EduAdapt/
+|── 📂backend/
+|     |─── 📂database/
+|     |       |── db.js #Connexion à la base de donnée
+|     |─── 📂models/
+|     |       |─── User.js #Regroupe 
+|     |─── 📂routes/ 
+|             |─── authentifications.js #Contient les routes
+|─── 📂src/
+|     |─── 📂assets/
+|     |     |─── 📂picture/ #Contient tous les images
+|     |─── 📂Components/ #Contient tous les composants réutilisables
+|     |          |─── Buttons/ #Contient le composant bouton
+|     |          |─── Home/ #Contient les composants de la page Home
+|     |          |─── InputWithLabel/ #Contient le composant input
+|     |          |─── Footer.jsx #Composant footer
+|     |          |─── Navbar.jsx #Composant navbar
+|     |  
+|     |─── 📂pages/ #Contient toutes les pages 
+|              |─── Chat.jsx #Page générer les contenus éducatifs
+|              |─── Connexion.jsx #Page de connexion
+|              |─── Home.jsx #Page d'accueil
+|              |─── Modifprofile.jsx #Page de modification des informations utilisateurs(nom, prénom, email,...) 
+|              |─── Profile.jsx #Page de profil utilisateur
+|              |─── Registration.jsx #Page d'inscription
+|─── 📂ressources/ #Contient les différents diagrammes
+```
 
----
+## Installation du projet : 
 
-## 📋 Options de réalisation
-
-### 🔹 Niveau Basique
-- Support de **textes et PDFs**  
-- Génération de **3 types d'exercices**  
-- Système de progression **linéaire**
-
-### 🔹 Niveau Intermédiaire
-- Adaptation à **3 niveaux de difficulté**  
-- **Recommandations personnalisées**  
-- Collaboration entre étudiants
-
-### 🔹 Niveau Avancé
-- IA adaptive avec **machine learning**  
-- Génération automatique de **cours complets**  
-- **Analytics prédictifs** de réussite
-
----
-
-## 📈 Impact attendu
-➡️ **Amélioration de 40 % de la rétention d'information** chez les étudiants utilisateurs.
+### Pré-requis : 
+- **[Nodejs](https://nodejs.org/fr)**
+- **[MySql](https://www.mysql.com/fr/)**
 
 
+    #### Installer une base de données : 
+    Créer une base données "eduadapt" et une table "users"
+```bash
+    #Création d'une base de données
+    CREATE DATABASE eduadapt CHARACTER SET utf8mb4 COLLATE=utf8mb4_general_ci
+
+    #Création de la table
+    CREATE TABLE IF NOT EXISTS users (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  firstname VARCHAR(100) NOT NULL,
+  lastname VARCHAR(100) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  address VARCHAR(255) DEFAULT NULL,
+  phonenumber VARCHAR(30) DEFAULT NULL,
+  password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+```
+
+ - **[Heidi](https://www.heidisql.com/)**
+
+## Etape 1 : 
+```bash
+#Clonez le projet :
+git clone https://github.com/elasad0306/EduAdapt.git
+```
+
+## Etape 2 : Installation des dépendances
+```bash
+#Pour installer les dépendances du frontend : 
+#Se déplacer dans le dossier ./backend
+cd EduAdapt
+
+#Lancer la commande suivant : 
+npm install 
+
+#Pour installer les dépendances du backend : 
+#Se déplacer dans le dossier ./backend
+cd ./backend
+
+#Lancer la commande suivant : 
+npm install
+```
+## Etape 3 :  Lancer l'application : 
+```bash
+#Lancer le frontend : être dans le dossier racine et lancer la commande : 
+npm start
+
+#Lancer le backend : être dans le dossier backend
+cd ./backend
+
+npm start 
+```
