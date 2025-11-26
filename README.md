@@ -36,12 +36,12 @@ EduAdapt est une application web qui permet aux étudiants de générer des rés
 ## Installation du projet : 
 
 ### Pré-requis : 
-    [Nodejs](https://nodejs.org/fr)
+    **[Nodejs](https://nodejs.org/fr)**
 
-    [MySql](https://www.mysql.com/fr/)
+    **[MySql](https://www.mysql.com/fr/)**
 
     Installer une base de données : 
-    
+
 
 ## Etape 1 : 
 ```bash 
