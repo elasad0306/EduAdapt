@@ -62,7 +62,6 @@ EduAdapt est une application web qui permet aux étudiants de générer des rés
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ```
 
- - **[Heidi](https://www.heidisql.com/)**
 
 ## Etape 1 : 
 ```bash
