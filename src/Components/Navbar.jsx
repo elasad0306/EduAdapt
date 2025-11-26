@@ -13,7 +13,7 @@ function Navbar() {
             navigate('/Connexion');
         } else {
             navigate('/Profile');
-
+              
         }
         
     };
@@ -33,6 +33,7 @@ function Navbar() {
                 />
             </button>
             
+            
             <div className="flex justify-end flex-1 min-w-0">
                 <button onClick={handleProfileClick} className="p-0 flex shrink-0">
                     <img
@@ -42,6 +43,7 @@ function Navbar() {
                     />
                 </button>
             </div>
+
         </nav>
     );
 }
