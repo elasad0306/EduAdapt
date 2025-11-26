@@ -18,12 +18,12 @@ EduAdapt est une application web qui permet aux étudiants de générer des rés
 |     |─── 📂assets/
 |     |     |─── 📂picture/ #Contient tous les images
 |     |─── 📂Components/ #Contient tous les composants réutilisables
-|               |─── Buttons/ #Contient le composant bouton
-|               |─── Home/ #Contient les composants de la page Home
-|               |─── InputWithLabel/ #Contient le composant input
-|               |─── Footer.jsx #Composant footer
-|               |─── Navbar.jsx #Composant navbar
-|
+|     |          |─── Buttons/ #Contient le composant bouton
+|     |          |─── Home/ #Contient les composants de la page Home
+|     |          |─── InputWithLabel/ #Contient le composant input
+|     |          |─── Footer.jsx #Composant footer
+|     |          |─── Navbar.jsx #Composant navbar
+|     |  
 |     |─── 📂pages/ #Contient toutes les pages 
 |              |─── Chat.jsx #Page générer les contenus éducatifs
 |              |─── Connexion.jsx #Page de connexion
@@ -31,6 +31,7 @@ EduAdapt est une application web qui permet aux étudiants de générer des rés
 |              |─── Modifprofile.jsx #Page de modification des informations utilisateurs(nom, prénom, email,...) 
 |              |─── Profile.jsx #Page de profil utilisateur
 |              |─── Registration.jsx #Page d'inscription
+|─── 📂ressources/ #Contient les différents diagrammes
 ```
 
 ## Installation du projet : 
