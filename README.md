@@ -36,11 +36,30 @@ EduAdapt est une application web qui permet aux étudiants de générer des rés
 ## Installation du projet : 
 
 ### Pré-requis : 
-**[Nodejs](https://nodejs.org/fr)**
-**[MySql](https://www.mysql.com/fr/)**
+- **[Nodejs](https://nodejs.org/fr)**
+- **[MySql](https://www.mysql.com/fr/)**
 
-    Installer une base de données : 
 
+    #### Installer une base de données : 
+    Créer une base données "eduadapt" et une table "users"
+```bash
+    #Création d'une base de données
+    CREATE DATABASE eduadapt CHARACTER SET utf8mb4 COLLATE=utf8mb4_general_ci
+
+    #Création de la table
+    CREATE TABLE IF NOT EXISTS users (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  firstname VARCHAR(100) NOT NULL,
+  lastname VARCHAR(100) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  address VARCHAR(255) DEFAULT NULL,
+  phonenumber VARCHAR(30) DEFAULT NULL,
+  password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+```
+
+ - **[Heidi](https://www.heidisql.com/)**
 
 ## Etape 1 : 
 ```bash 
