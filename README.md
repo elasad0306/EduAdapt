@@ -33,7 +33,7 @@ EduAdapt est une application web qui permet aux étudiants de générer des rés
 |              |─── Modifprofile.jsx #Page de modification des informations utilisateurs(nom, prénom, email,...) 
 |              |─── Profile.jsx #Page de profil utilisateur
 |              |─── Registration.jsx #Page d'inscription
-|─── 📂ressources/ #Contient les différents diagrammes
+|─── 📂Ressources/ #Contient les différents diagrammes
 ```
 
 ## Installation du projet : 
