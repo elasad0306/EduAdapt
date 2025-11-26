@@ -170,9 +170,9 @@ function CenterInput() {
                 />
 
                 {/* Nom du fichier choisi */}
-                {fileName && (
+                {/* {fileName && (
                     <span className="text-sm text-gray-700 mt-2">Fichier : {fileName}</span>
-                )}
+                )} */}
             </div>
         </div>
     );

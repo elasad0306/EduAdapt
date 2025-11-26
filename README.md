@@ -1,40 +1,69 @@
-# EduAdapt
-## Projet d'école
-## Sujet : 
-## 🎯 Problématique  
-Application web qui transforme n'importe quel contenu éducatif en expériences d'apprentissage interactives adaptées au niveau de chaque étudiant, générant automatiquement **quiz**, **flashcards** et **résumés**.
+# EduAdapt (Projet d'école)
 
----
+## 🎯 À propos : 
 
-## 🛠️ Stack technique recommandée
-- Interface **React** avec composants d'apprentissage réutilisables  
-- Intégration d'**APIs d'IA** (OpenAI, Gemini) pour la génération de contenu  
-- Système de progression avec **localStorage** et analytics  
-- **Gamification** : badges, récompenses, classements  
-- Algorithmes adaptatifs pour la **personnalisation du parcours**
+EduAdapt est une application web qui permet aux étudiants de générer des résumés de cours, des flashcards et des quiz à partir de n'importe quel contenu éducatif. 
 
----
+## 📂 Structure du projet : 
+```bash
+📂EduAdapt/
+|── 📂backend/
+|     |─── 📂database/
+|     |       |── db.js #Connexion à la base de donnée
+|     |─── 📂models/
+|     |       |─── User.js #Regroupe 
+|     |─── 📂routes/ 
+|             |─── authentifications.js #Contient les routes
+|─── 📂src/
+|     |─── 📂assets/
+|     |     |─── 📂picture/ #Contient tous les images
+|     |─── 📂Components/ #Contient tous les composants réutilisables
+|               |─── Buttons/ #Contient le composant bouton
+|               |─── Home/ #Contient les composants de la page Home
+|               |─── InputWithLabel/ #Contient le composant input
+|               |─── Footer.jsx #Composant footer
+|               |─── Navbar.jsx #Composant navbar
+|
+|     |─── 📂pages/ #Contient toutes les pages 
+|              |─── Chat.jsx #Page générer les contenus éducatifs
+|              |─── Connexion.jsx #Page de connexion
+|              |─── Home.jsx #Page d'accueil
+|              |─── Modifprofile.jsx #Page de modification des informations utilisateurs(nom, prénom, email,...) 
+|              |─── Profile.jsx #Page de profil utilisateur
+|              |─── Registration.jsx #Page d'inscription
+```
 
-## 📋 Options de réalisation
+## Installation du projet : 
 
-### 🔹 Niveau Basique
-- Support de **textes et PDFs**  
-- Génération de **3 types d'exercices**  
-- Système de progression **linéaire**
+### Pré-requis : 
+    [Nodejs](https://nodejs.org/fr)
 
-### 🔹 Niveau Intermédiaire
-- Adaptation à **3 niveaux de difficulté**  
-- **Recommandations personnalisées**  
-- Collaboration entre étudiants
+    [MySql](https://www.mysql.com/fr/)
 
-### 🔹 Niveau Avancé
-- IA adaptive avec **machine learning**  
-- Génération automatique de **cours complets**  
-- **Analytics prédictifs** de réussite
+    Installer une base de données : 
+    
 
----
+## Etape 1 : 
+```bash 
+Clonez le projet : 
+```bash
+git clone https://github.com/elasad0306/EduAdapt.git
+````
+## Etape 2 : 
+Installation des dépendances : 
+```bash
+#Pour installer les dépendances du frontend : 
+#Se déplacer dans le dossier ./backend
+cd EduAdapt
 
-## 📈 Impact attendu
-➡️ **Amélioration de 40 % de la rétention d'information** chez les étudiants utilisateurs.
+#Lancer la commande suivant : 
+npm install 
 
+#Pour installer les dépendances du backend : 
+#Se déplacer dans le dossier ./backend
+cd ./backend
+
+#Lancer la commande suivant : 
+npm install
+```
 
